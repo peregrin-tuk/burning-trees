@@ -5,7 +5,7 @@
 float cursor_size = 25;
 PFont font;
 
-int shrink = 5;
+int shrink = 1;
 int WindowWidth = 3030/shrink; // for real Deep Space this should be 3030
 int WindowHeight = 3712/shrink; // for real Deep Space this should be 3712
 int WallHeight = 1914/shrink; // for real Deep Space this should be 1914 (Floor is 1798)
@@ -14,22 +14,17 @@ boolean ShowTrack = true;
 boolean ShowPath = true;
 boolean ShowFeet = true;
 
-int framerate = 60;
-
-OSCMessaging osc;
-
-
+/*
 void settings()
 {
   size(WindowWidth, WindowHeight); 
 }
-
-
+*/
 
 void setup()
 {
-  // fullScreen(P2D, SPAN);
-  frameRate(framerate);
+  fullScreen(P2D, SPAN);
+  frameRate(30);
   
   noStroke();
   fill(0);
@@ -39,7 +34,6 @@ void setup()
   textAlign(CENTER, CENTER);
 
   initPlayerTracking();
-  osc = new OSCMessaging(); // TODO move to separate initOSC method (like with playerTracking and pc)?
 }
 
 void draw()
@@ -55,7 +49,6 @@ void draw()
   text((int)frameRate + " FPS", width / 2, 10);
 
   drawPlayerTracking();
-  osc.sendAllPlayerPositions(pc);
 }
 
 void keyPressed()
@@ -63,7 +56,7 @@ void keyPressed()
   switch(key)
   {
   case 'p':
-    ShowPath = !ShowPath; //<>//
+    ShowPath = !ShowPath;
     break;
   case 't':
     ShowTrack = !ShowTrack;
