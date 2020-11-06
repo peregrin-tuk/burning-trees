@@ -9,12 +9,14 @@ public class OSCMessaging {
   NetAddress remote = new NetAddress("127.0.0.1", portOut);
   
   public void sendNormalizedPlayerPosition(int playerId, float x, float y) {
+    x = normalize(x, WindowWidth);
+    y = normalize(y-WallHeight, WindowHeight-WallHeight);
+    
     OscMessage msg = new OscMessage("/pos");
     msg.add(playerId);
     msg.add(x);
     msg.add(y);
     oscp5.send(msg,remote);
-    print(playerId, x, y);
   }
   
   public void sendAllPlayerPositions(PharusClient pc) {
