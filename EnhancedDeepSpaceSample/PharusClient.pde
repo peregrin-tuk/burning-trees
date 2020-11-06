@@ -15,7 +15,7 @@ public class PharusClient extends PApplet
   // internal stuff only
   PApplet parent;
   TuioProcessing tuioProcessing;
-  int nextUniqueID = 0;
+  Stack<Integer> availableIDs = new Stack<Integer>();
   Method playerAddEventMethod;
   Method playerRemoveEventMethod;
   int wallHeight = 0;
@@ -25,7 +25,7 @@ public class PharusClient extends PApplet
   float jumpDistanceMaxTolerance = 0.05f; // max distance allowed when jumping between last known position and potential landing position, unit is in pixels relative to window width
   HashMap<Long, Player> players = new HashMap<Long, Player>();
 
-  PharusClient(PApplet _parent, int _wallHeight) 
+  PharusClient(PApplet _parent, int _wallHeight, int maxPlayerNumber) 
   {
     this.parent = _parent;
     this.wallHeight = _wallHeight;
@@ -36,6 +36,10 @@ public class PharusClient extends PApplet
 
     parent.registerMethod("dispose", this);
     parent.registerMethod("pre", this); 
+    
+    for (int i = maxPlayerNumber; i >= 0; i--) {
+      availableIDs.add(i);
+    }
 
     // check to see if the host applet implements event functions
     try 
@@ -129,6 +133,7 @@ public class PharusClient extends PApplet
       if (p.age > maxAge)
       {
           firePlayerRemoveEvent(p);
+          availableIDs.push(p.id);
           iter.remove();
       }
     }
@@ -185,9 +190,15 @@ public class PharusClient extends PApplet
         // add as new player if nothing found
         if (!found)
         {
-          Player p = new Player(this, nextUniqueID++, tc.getSessionID(), tc.getScreenX(width), tc.getScreenY(height - wallHeight) + wallHeight);
-          players.put(tc.getSessionID(), p);
-          firePlayerAddEvent(p);
+          print(availableIDs);
+          try {
+            Player p = new Player(this, availableIDs.pop(), tc.getSessionID(), tc.getScreenX(width), tc.getScreenY(height - wallHeight) + wallHeight);
+            players.put(tc.getSessionID(), p);
+            firePlayerAddEvent(p);
+          } 
+          catch(EmptyStackException e) {
+            print("Couldn't add new player - max. number of players in game reached.");
+          }
         }
       }
     }
