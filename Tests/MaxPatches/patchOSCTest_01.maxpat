@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 77.0, 1852.0, 929.0 ],
+		"rect" : [ 26.0, 85.0, 1470.0, 929.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,12 +40,35 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 133.297116062857867, 310.0, 29.5, 22.0 ],
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 133.297116062857867, 249.0, 58.0, 22.0 ],
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-124",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 364.666666666666742, 285.512208700180054, 77.0, 20.0 ],
-					"presentation_linecount" : 2,
 					"text" : "player ID"
 				}
 
@@ -304,8 +327,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 440.211750529029132, 977.707334518432617, 83.0, 22.0 ],
-					"text" : "prepend /amp"
+					"patching_rect" : [ 440.211750529029132, 977.707334518432617, 93.0, 22.0 ],
+					"text" : "prepend /amp 2"
 				}
 
 			}
@@ -326,14 +349,15 @@
 					"clipheight" : 91.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Google Drive\\songs\\code_clash.mp3",
-								"filename" : "code_clash.mp3",
+								"absolutepath" : "C:\\Users\\jsalh\\Google Drive\\songs\\frat.mp3",
+								"filename" : "frat.mp3",
 								"filekind" : "audiofile",
-								"id" : "u915000866",
+								"id" : "u851000346",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
-									"loop" : 1
+									"loop" : 1,
+									"timestretch" : 0
 								}
 
 							}
@@ -354,7 +378,8 @@
 					"patching_rect" : [ 133.297116062857867, 471.0, 150.0, 92.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
-					"timestretch" : [ 0 ]
+					"timestretch" : [ 0 ],
+					"varname" : "playlist~"
 				}
 
 			}
@@ -461,6 +486,20 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-81", 0 ],
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"order" : 2,
 					"source" : [ "obj-79", 0 ]
@@ -522,7 +561,7 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "code_clash.mp3",
+				"name" : "frat.mp3",
 				"bootpath" : "~/Google Drive/songs",
 				"patcherrelativepath" : "../../../../../Google Drive/songs",
 				"type" : "Mp3",
