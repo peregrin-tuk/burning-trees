@@ -3,7 +3,7 @@
 //// TEST VISUALIZATIONS ////
 
 void drawTestVisualization() {
-  int ampScale = 40;
+  int ampScale = 2;
   
   for (HashMap.Entry<Long, Player> playersEntry : pc.players.entrySet()) {
     

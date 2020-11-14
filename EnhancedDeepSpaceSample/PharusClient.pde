@@ -111,6 +111,12 @@ public class PharusClient extends PApplet
   public void dispose() 
   {
     // Anything in here will be called automatically when the parent sketch shuts down.
+    Iterator<HashMap.Entry<Long, Player>> iter = players.entrySet().iterator();
+    while (iter.hasNext()) 
+    {
+      firePlayerRemoveEvent(iter.next().getValue());
+    }
+    
     players.clear();
     tuioProcessing.dispose();
   }

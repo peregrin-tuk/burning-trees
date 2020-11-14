@@ -6,9 +6,9 @@
 
 PharusClient pc;
 
-void initPlayerTracking()
+void initPlayerTracking(int maxPlayers)
 {
-  pc = new PharusClient(this, WallHeight, 10);
+  pc = new PharusClient(this, WallHeight, maxPlayers);
   // age is measured in update cycles, with 25 fps this is 2 seconds
   pc.setMaxAge(50);
   // max distance allowed when jumping between last known position and potential landing position, unit is in pixels relative to window width
