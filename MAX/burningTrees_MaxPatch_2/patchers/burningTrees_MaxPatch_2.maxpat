@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 39.0, 85.0, 1839.0, 913.0 ],
+		"rect" : [ 39.0, 85.0, 1457.0, 913.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,138 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-71",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 127.0, 56.50847315788269, 29.5, 22.0 ],
+					"text" : "0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-67",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 929.876839399337769, 29.5, 22.0 ],
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-68",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 956.876839399337769, 29.5, 22.0 ],
+					"text" : "0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-63",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 715.613695859909058, 29.5, 22.0 ],
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-64",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 742.613695859909058, 29.5, 22.0 ],
+					"text" : "0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-61",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 517.50847315788269, 29.5, 22.0 ],
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-62",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 546.50847315788269, 29.5, 22.0 ],
+					"text" : "0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-59",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 326.50847315788269, 29.5, 22.0 ],
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-60",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 353.50847315788269, 29.5, 22.0 ],
+					"text" : "0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-58",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 127.50847315788269, 29.5, 22.0 ],
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-56",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 19.0, 154.50847315788269, 29.5, 22.0 ],
+					"text" : "0"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-52",
 					"maxclass" : "newobj",
@@ -291,7 +423,7 @@
 					"numoutlets" : 5,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 730.796773769638776, 312.012162685394287, 48.0, 136.0 ],
+					"patching_rect" : [ 732.796773769638776, 312.012162685394287, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ -70 ],
@@ -319,7 +451,7 @@
 					"numoutlets" : 5,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 636.296773769638776, 312.012162685394287, 48.0, 136.0 ],
+					"patching_rect" : [ 448.796773769638776, 312.012162685394287, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ -70 ],
@@ -372,7 +504,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 1080.947351455688477, 128.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 1084.455824613571167, 128.0, 22.0 ],
 					"text" : "send~ snareGmiadlich"
 				}
 
@@ -383,7 +515,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 998.947351455688477, 98.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 1002.455824613571167, 98.0, 22.0 ],
 					"text" : "send~ snareOag"
 				}
 
@@ -394,7 +526,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 273.00847315788269, 124.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 276.516946315765381, 124.0, 22.0 ],
 					"text" : "send~ bassGmiadlich"
 				}
 
@@ -405,7 +537,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 187.50847315788269, 93.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 191.016946315765381, 93.0, 22.0 ],
 					"text" : "send~ bassOag"
 				}
 
@@ -416,7 +548,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 469.508463859558105, 119.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 473.016937017440796, 119.0, 22.0 ],
 					"text" : "send~ kickGmiadlich"
 				}
 
@@ -427,7 +559,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 391.508463859558105, 88.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 395.016937017440796, 88.0, 22.0 ],
 					"text" : "send~ kickOag"
 				}
 
@@ -438,7 +570,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 667.947351455688477, 132.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 671.455824613571167, 132.0, 22.0 ],
 					"text" : "send~ hiHatsGmiadlich"
 				}
 
@@ -449,7 +581,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 585.052619099617004, 102.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 588.561092257499695, 102.0, 22.0 ],
 					"text" : "send~ hiHatsOag"
 				}
 
@@ -1677,7 +1809,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 732.508524298667908, 229.508463859558105, 84.0, 22.0 ],
+					"patching_rect" : [ 734.508524298667908, 229.508463859558105, 84.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2295,7 +2427,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 637.008524298667908, 229.508463859558105, 77.0, 22.0 ],
+					"patching_rect" : [ 449.508524298667908, 229.508463859558105, 77.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2932,7 +3064,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 869.947351455688477, 137.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 873.455824613571167, 137.0, 22.0 ],
 					"text" : "send~ melodyGmiadlich"
 				}
 
@@ -2943,7 +3075,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.876060984351398, 787.052619099617004, 106.0, 22.0 ],
+					"patching_rect" : [ 113.876060984351398, 790.561092257499695, 106.0, 22.0 ],
 					"text" : "send~ melodyOag"
 				}
 
@@ -3553,7 +3685,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 446.508524298667908, 229.508463859558105, 91.0, 22.0 ],
+					"patching_rect" : [ 640.008524298667908, 229.508463859558105, 91.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -3572,10 +3704,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_Snare_gmiadlich.wav",
-								"filename" : "burnigTrees_01_Snare_gmiadlich.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_Snare_gmiadlich.wav",
+								"filename" : "test_burnigTrees_01_Snare_gmiadlich.wav",
 								"filekind" : "audiofile",
-								"id" : "u841000513",
+								"id" : "u345000477",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -3597,7 +3729,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 1027.157848000526428, 250.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 1030.666321158409119, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -3611,10 +3743,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_Melody_gmiadlich.wav",
-								"filename" : "burnigTrees_01_Melody_gmiadlich.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_Melody_gmiadlich.wav",
+								"filename" : "test_burnigTrees_01_Melody_gmiadlich.wav",
 								"filekind" : "audiofile",
-								"id" : "u860000510",
+								"id" : "u650000469",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -3636,7 +3768,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 814.999965906143188, 250.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 818.508439064025879, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -3650,10 +3782,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_Kick_gmiadlich.wav",
-								"filename" : "burnigTrees_01_Kick_gmiadlich.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_Kick_gmiadlich.wav",
+								"filename" : "test_burnigTrees_01_Kick_gmiadlich.wav",
 								"filekind" : "audiofile",
-								"id" : "u412000507",
+								"id" : "u597000461",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -3675,7 +3807,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 416.50847315788269, 250.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 420.016946315765381, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -3689,10 +3821,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_HiHats_gmiadlich.wav",
-								"filename" : "burnigTrees_01_HiHats_gmiadlich.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_HiHats_oag.wav",
+								"filename" : "test_burnigTrees_01_HiHats_oag.wav",
 								"filekind" : "audiofile",
-								"id" : "u763000504",
+								"id" : "u264000457",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -3714,7 +3846,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 530.184214115142822, 250.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 533.692687273025513, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -3728,10 +3860,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_Bass_gmiadlich.wav",
-								"filename" : "burnigTrees_01_Bass_gmiadlich.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_Bass_gmiadlich.wav",
+								"filename" : "test_burnigTrees_01_Bass_gmiadlich.wav",
 								"filekind" : "audiofile",
-								"id" : "u550000498",
+								"id" : "u523000446",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -3753,7 +3885,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 217.00847315788269, 250.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 220.516946315765381, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -3767,10 +3899,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_Snare_oag.wav",
-								"filename" : "burnigTrees_01_Snare_oag.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_Snare_oag.wav",
+								"filename" : "test_burnigTrees_01_Snare_oag.wav",
 								"filekind" : "audiofile",
-								"id" : "u419000525",
+								"id" : "u659000510",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -3792,7 +3924,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 945.368366241455078, 250.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 948.876839399337769, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -3806,10 +3938,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_Melody_oag.wav",
-								"filename" : "burnigTrees_01_Melody_oag.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_Melody_oag.wav",
+								"filename" : "test_burnigTrees_01_Melody_oag.wav",
 								"filekind" : "audiofile",
-								"id" : "u057000522",
+								"id" : "u086000473",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -3831,7 +3963,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 731.105222702026367, 250.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 734.613695859909058, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -3845,10 +3977,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_Kick_oag.wav",
-								"filename" : "burnigTrees_01_Kick_oag.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_Kick_oag.wav",
+								"filename" : "test_burnigTrees_01_Kick_oag.wav",
 								"filekind" : "audiofile",
-								"id" : "u037000519",
+								"id" : "u625000465",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -3870,7 +4002,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 337.50847315788269, 250.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 341.016946315765381, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -3884,10 +4016,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_HiHats_oag.wav",
-								"filename" : "burnigTrees_01_HiHats_oag.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_HiHats_gmiadlich.wav",
+								"filename" : "test_burnigTrees_01_HiHats_gmiadlich.wav",
 								"filekind" : "audiofile",
-								"id" : "u609000516",
+								"id" : "u025000453",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -3909,7 +4041,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 612.0, 250.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 615.50847315788269, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -3924,7 +4056,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 36.297116062857867, 53.0, 29.5, 22.0 ],
+					"patching_rect" : [ 82.297116062857867, 56.50847315788269, 29.5, 22.0 ],
 					"text" : "1"
 				}
 
@@ -3936,7 +4068,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 36.297116062857867, 15.0, 58.0, 22.0 ],
+					"patching_rect" : [ 82.297116062857867, 18.50847315788269, 58.0, 22.0 ],
 					"text" : "loadbang"
 				}
 
@@ -4020,7 +4152,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 86.0, 20.0, 20.0 ]
+					"patching_rect" : [ 82.297116062857867, 89.50847315788269, 20.0, 20.0 ]
 				}
 
 			}
@@ -4043,7 +4175,7 @@
 					"numoutlets" : 5,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 445.796773769638776, 312.012162685394287, 48.0, 136.0 ],
+					"patching_rect" : [ 639.296773769638776, 312.012162685394287, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ -70 ],
@@ -4130,10 +4262,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\Sounds\\TestSounds_01\\burnigTrees_01_Bass_oag.wav",
-								"filename" : "burnigTrees_01_Bass_oag.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\TestSounds_02\\test_burnigTrees_01_Bass_oag.wav",
+								"filename" : "test_burnigTrees_01_Bass_oag.wav",
 								"filekind" : "audiofile",
-								"id" : "u638000501",
+								"id" : "u053000449",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -4155,7 +4287,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 36.297116062857867, 132.0, 256.0, 49.0 ],
+					"patching_rect" : [ 82.297116062857867, 135.50847315788269, 250.0, 49.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ],
@@ -4216,7 +4348,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-25", 0 ],
-					"source" : [ "obj-114", 0 ]
+					"source" : [ "obj-114", 2 ]
 				}
 
 			}
@@ -4230,7 +4362,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
-					"source" : [ "obj-114", 2 ]
+					"source" : [ "obj-114", 0 ]
 				}
 
 			}
@@ -4367,7 +4499,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-47", 0 ],
+					"destination" : [ "obj-2", 0 ],
 					"order" : 0,
 					"source" : [ "obj-34", 0 ]
 				}
@@ -4469,7 +4601,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-34", 1 ],
-					"order" : 2,
+					"order" : 4,
 					"source" : [ "obj-41", 0 ]
 				}
 
@@ -4493,7 +4625,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-79", 1 ],
-					"order" : 4,
+					"order" : 2,
 					"source" : [ "obj-41", 0 ]
 				}
 
@@ -4629,6 +4761,54 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"order" : 1,
+					"source" : [ "obj-56", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-22", 0 ],
+					"order" : 0,
+					"source" : [ "obj-56", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"order" : 1,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-22", 0 ],
+					"order" : 0,
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-14", 0 ],
+					"order" : 1,
+					"source" : [ "obj-59", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-19", 0 ],
+					"order" : 0,
+					"source" : [ "obj-59", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-37", 0 ],
 					"source" : [ "obj-6", 0 ]
 				}
@@ -4636,14 +4816,142 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-81", 0 ],
+					"destination" : [ "obj-14", 0 ],
+					"order" : 1,
+					"source" : [ "obj-60", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-19", 0 ],
+					"order" : 0,
+					"source" : [ "obj-60", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"order" : 0,
+					"source" : [ "obj-61", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 0 ],
+					"order" : 1,
+					"source" : [ "obj-61", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"order" : 0,
+					"source" : [ "obj-62", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 0 ],
+					"order" : 1,
+					"source" : [ "obj-62", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-15", 0 ],
+					"order" : 1,
+					"source" : [ "obj-63", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-18", 0 ],
+					"order" : 0,
+					"source" : [ "obj-63", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-15", 0 ],
+					"order" : 1,
+					"source" : [ "obj-64", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-18", 0 ],
+					"order" : 0,
+					"source" : [ "obj-64", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-16", 0 ],
+					"order" : 1,
+					"source" : [ "obj-67", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-17", 0 ],
+					"order" : 0,
+					"source" : [ "obj-67", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-16", 0 ],
+					"order" : 1,
+					"source" : [ "obj-68", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-17", 0 ],
+					"order" : 0,
+					"source" : [ "obj-68", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-78", 0 ],
+					"order" : 0,
 					"source" : [ "obj-7", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-2", 0 ],
+					"destination" : [ "obj-81", 0 ],
+					"order" : 1,
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-81", 0 ],
+					"source" : [ "obj-71", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-47", 0 ],
 					"order" : 0,
 					"source" : [ "obj-79", 0 ]
 				}
@@ -4767,72 +5075,72 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "burnigTrees_01_Bass_oag.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_Bass_oag.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "burnigTrees_01_HiHats_oag.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_HiHats_gmiadlich.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "burnigTrees_01_Kick_oag.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_Kick_oag.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "burnigTrees_01_Melody_oag.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_Melody_oag.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "burnigTrees_01_Snare_oag.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_Snare_oag.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "burnigTrees_01_Bass_gmiadlich.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_Bass_gmiadlich.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "burnigTrees_01_HiHats_gmiadlich.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_HiHats_oag.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "burnigTrees_01_Kick_gmiadlich.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_Kick_gmiadlich.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "burnigTrees_01_Melody_gmiadlich.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_Melody_gmiadlich.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "burnigTrees_01_Snare_gmiadlich.wav",
-				"bootpath" : "~/Documents/GitHub/burning-trees/Sounds/TestSounds_01",
-				"patcherrelativepath" : "../Sounds/TestSounds_01",
+				"name" : "test_burnigTrees_01_Snare_gmiadlich.wav",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/TestSounds_02",
+				"patcherrelativepath" : "../TestSounds_02",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
