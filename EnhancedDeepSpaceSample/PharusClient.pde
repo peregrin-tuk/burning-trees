@@ -37,7 +37,7 @@ public class PharusClient extends PApplet
     parent.registerMethod("dispose", this);
     parent.registerMethod("pre", this); 
     
-    for (int i = maxPlayerNumber; i >= 0; i--) {
+    for (int i = maxPlayerNumber-1; i >= 0; i--) {
       availableIDs.add(i);
     }
 

@@ -12,7 +12,7 @@ int WallHeight = 1914/shrink; // for real Deep Space this should be 1914 (Floor 
 
 boolean ShowTrack = true;
 boolean ShowPath = true;
-boolean ShowFeet = true;
+boolean ShowFeet = false;
 
 int framerate = 60;
 
@@ -52,10 +52,12 @@ void draw()
   fill(70, 100, 150);
   rect(0, 0, WindowWidth, WallHeight);
   fill(150);
+  textFont(font, 18);
   text((int)frameRate + " FPS", width / 2, 10);
 
   drawPlayerTracking();
   osc.sendAllPlayerPositions(pc);
+  drawTestVisualization();
 }
 
 void keyPressed()
