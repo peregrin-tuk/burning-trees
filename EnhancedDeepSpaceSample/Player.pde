@@ -14,16 +14,18 @@ class Player
     this.y = y;
   }
 
-  // --- All the information about a player ---
-  PharusClient pc; // do not modify this, PharusClient updates it
-  int id; // do not modify this, PharusClient updates it
-  long tuioId; // do not modify this, PharusClient updates it
-  int age; // do not modify this, PharusClient updates it
-  float x; // do not modify this, PharusClient updates it
-  float y; // do not modify this, PharusClient updates it
-  ArrayList<Foot> feet = new ArrayList<Foot>(); // do not modify this, PharusClient updates it
+  // --- Pharus Client fields - do not modify these, PharusClient updates it ---
+  PharusClient pc;
+  int id;
+  long tuioId;
+  int age;
+  float x;
+  float y;
+  ArrayList<Foot> feet = new ArrayList<Foot>();
 
-  // TODO extend this with additional fields
+  // --- additional fields ---
+  float amplitude;
+  
 
   // --- Some functions that have information about the player ---
   boolean isJumping()
