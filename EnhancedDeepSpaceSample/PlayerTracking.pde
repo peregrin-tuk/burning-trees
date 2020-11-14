@@ -81,12 +81,12 @@ void pharusPlayerAdded(Player player)
 {
   println("Player " + player.id + " added");
   
-  // TODO do something here if needed
+  osc.sendisActive(player.id, true);
 }
 
 void pharusPlayerRemoved(Player player)
 {
   println("Player " + player.id + " removed");
   
-  // TODO do something here if needed  
+  osc.sendisActive(player.id, false);
 }
