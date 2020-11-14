@@ -68,7 +68,7 @@ class Player
         return 0;
       }
       TuioPoint tp = (TuioPoint)pointList.get(pointID);
-      return tc.getScreenY(height - pc.wallHeight) + pc.wallHeight;
+      return tp.getScreenY(height - pc.wallHeight) + pc.wallHeight;
     }
     return 0;
   }  
