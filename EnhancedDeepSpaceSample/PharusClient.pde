@@ -38,7 +38,7 @@ public class PharusClient extends PApplet
 
     parent.registerMethod("dispose", this);
     parent.registerMethod("pre", this); 
-    
+
     for (int i = maxPlayers-1; i >= 0; i--) {
       availableIDs.add(i);
     }
@@ -61,9 +61,19 @@ public class PharusClient extends PApplet
     {
       // no such method, or an error..
       println("Function pharusPlayerRemoved() not found, Player remove events disabled.");
-    }    
+    }
   }
-  
+
+  public Player getPlayerById(int id) {
+    Iterator<HashMap.Entry<Long, Player>> iter = pc.players.entrySet().iterator();
+    while (iter.hasNext()) 
+    {
+      Player p = iter.next().getValue();
+      if (p.id == id) return p;
+    }  
+    return null;
+  }
+
   // age is measured in update cycles, with 25 fps this is 2 seconds
   public void setMaxAge(int age)
   {
@@ -92,7 +102,7 @@ public class PharusClient extends PApplet
       }
     }
   }
-  
+
   void firePlayerRemoveEvent(Player player) 
   {
     if (playerRemoveEventMethod != null) 
@@ -118,7 +128,7 @@ public class PharusClient extends PApplet
     {
       firePlayerRemoveEvent(iter.next().getValue());
     }
-    
+
     players.clear();
     tuioProcessing.dispose();
   }
@@ -140,12 +150,12 @@ public class PharusClient extends PApplet
       // remove if too old
       if (p.age > maxAge)
       {
-          firePlayerRemoveEvent(p);
-          availableIDs.push(p.id);
-          iter.remove();
+        firePlayerRemoveEvent(p);
+        availableIDs.push(p.id);
+        iter.remove();
       }
     }
-    
+
     // Update known players with available tuio data
     ArrayList<TuioCursor> tcl = tuioProcessing.getTuioCursorList();
     int i = 0;
@@ -160,8 +170,7 @@ public class PharusClient extends PApplet
         p.x = tc.getScreenX(width);
         p.y = tc.getScreenY(height - wallHeight) + wallHeight;
         tcl.remove(i);
-      }
-      else
+      } else
       {
         i++;
       }
@@ -183,16 +192,16 @@ public class PharusClient extends PApplet
           }
           if (dist(p.x, p.y, tc.getScreenX(width), tc.getScreenY(height - wallHeight) + wallHeight) < jumpDistanceMaxTolerance * width)
           {
-              // swap previous TUIO id to new id
-              println("updating tuio id of player " + p.id + " from " + p.tuioId + " to " + tc.getSessionID());
-              players.remove(p.tuioId);
-              players.put(tc.getSessionID(), p);
-              // update player
-              p.age = 0;
-              p.x = tc.getScreenX(width);
-              p.y = tc.getScreenY(height - wallHeight) + wallHeight;
-              found = true;
-              break;
+            // swap previous TUIO id to new id
+            println("updating tuio id of player " + p.id + " from " + p.tuioId + " to " + tc.getSessionID());
+            players.remove(p.tuioId);
+            players.put(tc.getSessionID(), p);
+            // update player
+            p.age = 0;
+            p.x = tc.getScreenX(width);
+            p.y = tc.getScreenY(height - wallHeight) + wallHeight;
+            found = true;
+            break;
           }
         }
         // add as new player if nothing found
@@ -210,7 +219,7 @@ public class PharusClient extends PApplet
         }
       }
     }
-    
+
     // update the feet
     ArrayList<TuioObject> tuioObjectList = tuioProcessing.getTuioObjectList();
     ArrayList<TuioCursor> tuioCursorList = tuioProcessing.getTuioCursorList();
@@ -225,14 +234,13 @@ public class PharusClient extends PApplet
       if (p != null)
       {
         p.feet.add(new Foot(to.getScreenX(width), to.getScreenY(height - wallHeight) + wallHeight));
-      }
-      else
+      } else
       {
         println("unkown foot id: " + to.getSymbolID());
-      } 
+      }
     }
-    
-  //  println((millis() - m) + " ms update");
+
+    //  println((millis() - m) + " ms update");
   }
 
   // ------ these callback methods are called whenever a TUIO event occurs ------------------

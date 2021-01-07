@@ -1,5 +1,5 @@
- //<>//
-// based on EnhancedDeepSpaceSample Version 3.1
+// based on EnhancedDeepSpaceSample Version 3.1 //<>//
+import java.awt.Point;
 
 float cursor_size = 25;
 PFont font;
@@ -26,22 +26,23 @@ boolean OnePlayerMode = false;
 int framerate = 60;
 int maxPlayers = 6;
 color[] playerColors = {
-  color(70,183,105),
-  color(30,130,60),
-  color(130,190,130),
-  color(135,200,80),
-  color(180,200,80),
-  color(150,200,185),
+  color(70, 183, 105), 
+  color(30, 130, 60), 
+  color(130, 190, 130), 
+  color(135, 200, 80), 
+  color(180, 200, 80), 
+  color(150, 200, 185), 
 };
+color trunkColor = color(185, 150, 140);
 
 OSCMessaging osc;
+List<BinaryTree> trees = new ArrayList<BinaryTree>();
 
 
 void settings()
 {
   size(ScaledWindowWidth, ScaledWindowHeight);
 }
-
 
 
 void setup()
@@ -58,25 +59,62 @@ void setup()
 
   initPlayerTracking(maxPlayers);
   osc = new OSCMessaging();
+  
+  Point2D[] positions = {
+    new Point(WindowWidth/3, WallHeight+5),
+    new Point(WindowWidth/3*2, WallHeight+5),
+    new Point(-5,WallHeight/6),
+    new Point(WindowWidth+5,WallHeight/5),
+    new Point(WindowWidth/6,WallHeight+5),
+    new Point(WindowWidth-100,WallHeight+5)
+  };
+  
+  float[] rotations = {
+    random(-20, 20),
+    random(-20, 20),
+    random(45, 135),
+    random(-45, -135),
+    random(-10, 40),
+    random(-40, -10)
+  };
+  
+  for(int id = 0; id < maxPlayers; id++) {
+    Point2D p = positions[id];
+    float r = rotations[id];
+    int h = (int)random(200,550);
+    int w = (int)random(30, 50);
+    BinaryTree tree = new BinaryTree(id, p, r, 7, h, w, 35, 0.4, 0.1, 0.7, 0.5);
+    tree.generateTree();
+    trees.add(tree);
+  }
 }
+
 
 void draw()
 {
-  background(255); // white background
-  
+  background(255); // base color = white
+
   drawPlayerTracking();
   osc.sendAllPlayerPositions(pc);
-  
+
   scale(1f/shrink);
-  drawWallBackground();  
-  drawFractalTree();
-  if(ShowFPS) showFPS();
-  if(ShowTestOutput) drawTestVisualization();
+
+  drawBackground();  
+  //drawFractalTree();
+  for(BinaryTree t: trees) {
+    t.drawTree();
+  }
+
+  if (ShowFPS) showFPS();
+  if (ShowTestOutput) drawTestVisualization();
 }
 
-void drawWallBackground() {
+
+//// DRAWING METHODS ////
+
+void drawBackground() {
   noStroke();
-  fill(70, 100, 150);
+  fill(40, 70, 80);
   rect(0, 0, WindowWidth, WallHeight);
 }
 
@@ -85,7 +123,6 @@ void showFPS() {
   textFont(font, 36);
   text((int)frameRate + " FPS", WindowWidth / 2, 30);
 }
-
 
 
 //// DEBUG & TESTING ////
