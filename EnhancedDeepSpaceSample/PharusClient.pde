@@ -24,11 +24,13 @@ public class PharusClient extends PApplet
   int maxAge = 50; // age is measured in update cycles, with 25 fps this is 2 seconds
   float jumpDistanceMaxTolerance = 0.05f; // max distance allowed when jumping between last known position and potential landing position, unit is in pixels relative to window width
   HashMap<Long, Player> players = new HashMap<Long, Player>();
+  int maxPlayers;
 
-  PharusClient(PApplet _parent, int _wallHeight, int maxPlayerNumber) 
+  PharusClient(PApplet _parent, int _wallHeight, int maxPlayers) 
   {
     this.parent = _parent;
     this.wallHeight = _wallHeight;
+    this.maxPlayers = maxPlayers;
     // this is a bit of a hack but need for TuioProcessing to work properly
     width = parent.width;
     height = parent.height;
@@ -37,7 +39,7 @@ public class PharusClient extends PApplet
     parent.registerMethod("dispose", this);
     parent.registerMethod("pre", this); 
     
-    for (int i = maxPlayerNumber-1; i >= 0; i--) {
+    for (int i = maxPlayers-1; i >= 0; i--) {
       availableIDs.add(i);
     }
 

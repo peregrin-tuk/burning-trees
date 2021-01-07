@@ -3,28 +3,42 @@
 //// TEST VISUALIZATIONS ////
 
 void drawTestVisualization() {
-  int ampScale = 2;
+  
+  noStroke();
+  fill(70, 100, 150);
+  rect(0, WallHeight-450, WindowWidth, 450);
+  
+  // labels
+  fill(255);
+  textAlign(LEFT, CENTER);
+  textSize(36);   
+  text("Player ID:", 100, WallHeight - 400);
+  textSize(30);
+  text("Amplitude:", 100, WallHeight - 180);
+  text("Tracking Coords:", 100, WallHeight - 120);
+  text("Normalized Coords:", 100, WallHeight - 80);
+  
+  textAlign(CENTER, CENTER);
   
   for (HashMap.Entry<Long, Player> playersEntry : pc.players.entrySet()) {
     
     Player p = playersEntry.getValue();
     
-    fill(255, 255, 255);
-    textSize(64/shrink);   
-    text(p.id, WindowWidth/11 * (p.id + 1), WallHeight - 700/shrink);
-    circle(WindowWidth/11 * (p.id + 1), WallHeight - 500/shrink, (20 + 100*p.amplitude*ampScale) / shrink);
+    textSize(36);   
+    text(p.id, WindowWidth/(pc.maxPlayers+2) * (p.id + 2), WallHeight - 400);
+    textSize(30);
     
-    textSize(48/shrink);
+    // amplitude
+    circle(WindowWidth/(pc.maxPlayers+2) * (p.id + 2), WallHeight - 290, (20 + 100*p.amplitude));
+    text(String.format("%.3f", p.amplitude), WindowWidth/(pc.maxPlayers+2) * (p.id + 2), WallHeight - 180);
     
     // coordinates
-    text(String.format("(%1$.0f | %2$.0f)", p.x, p.y), WindowWidth/11 * (p.id + 1), WallHeight - 300/shrink);
+    text(String.format("%1$.0f | %2$.0f", p.x, p.y), WindowWidth/(pc.maxPlayers+2) * (p.id + 2), WallHeight - 120);
     
     // normalized coordinates
     float xn = osc.normalize(p.x, WindowWidth);
     float yn = osc.normalize(p.y-WallHeight, WindowHeight-WallHeight);
-    text(String.format("(%1$.2f | %2$.2f)", xn, yn), WindowWidth/11 * (p.id + 1), WallHeight - 200/shrink);
+    text(String.format("%1$.2f | %2$.2f", xn, yn), WindowWidth/(pc.maxPlayers+2) * (p.id + 2), WallHeight - 80);
     
-    // amplitude
-    text(String.format("%.3f", p.amplitude), WindowWidth/11 * (p.id + 1), WallHeight - 100/shrink);
   }
 }

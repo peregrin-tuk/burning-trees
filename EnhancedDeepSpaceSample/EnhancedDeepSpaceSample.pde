@@ -5,24 +5,31 @@
 float cursor_size = 25;
 PFont font;
 
+// deep space display sizes
+int WindowWidth = 3030;
+int WindowHeight = 3712;
+int WallHeight = 1914; // should be 1914 (Floor is 1798)
+
+// scaled display sizes
 int shrink = 2;
-int WindowWidth = 3030/shrink; // for real Deep Space this should be 3030
-int WindowHeight = 3712/shrink; // for real Deep Space this should be 3712
-int WallHeight = 1914/shrink; // for real Deep Space this should be 1914 (Floor is 1798)
+int ScaledWindowWidth = WindowWidth/shrink; 
+int ScaledWindowHeight = WindowHeight/shrink;
+int ScaledWallHeight = WallHeight/shrink;
 
 boolean ShowTrack = true;
-boolean ShowPath = false;
 boolean ShowFeet = false;
+boolean ShowTestOutput = false;
+boolean ShowFPS = true;
 boolean OnePlayerMode = false;
 
-int framerate = 30;
+int framerate = 60;
 
 OSCMessaging osc;
 
 
 void settings()
 {
-  size(WindowWidth, WindowHeight);
+  size(ScaledWindowWidth, ScaledWindowHeight);
 }
 
 
@@ -40,26 +47,33 @@ void setup()
   textAlign(CENTER, CENTER);
 
   initPlayerTracking(10);
-  osc = new OSCMessaging(); // TODO move to separate initOSC method (like with playerTracking and pc)?
+  osc = new OSCMessaging();
 }
 
 void draw()
 {
-  // clear background with white
-  background(255);
+  background(255); // white background
+  
+  drawPlayerTracking();
+  osc.sendAllPlayerPositions(pc);
+  
+  scale(1f/shrink);
+  drawWallBackground();  
+  drawFractalTree();
+  if(ShowFPS) showFPS();
+  if(ShowTestOutput) drawTestVisualization();
+}
 
-  // set upper half of window (=wall projection) bluish
+void drawWallBackground() {
   noStroke();
   fill(70, 100, 150);
   rect(0, 0, WindowWidth, WallHeight);
-  fill(150);
-  textFont(font, 18);
-  text((int)frameRate + " FPS", width / 2, 10);
+}
 
-  drawPlayerTracking();
-  osc.sendAllPlayerPositions(pc);
-  drawTestVisualization();
-  drawFractalTree();
+void showFPS() {
+  fill(255);
+  textFont(font, 36);
+  text((int)frameRate + " FPS", WindowWidth / 2, 30);
 }
 
 
@@ -71,13 +85,16 @@ void keyPressed()
   switch(key)
   {
   case 'p':
-    ShowPath = !ShowPath;
+    ShowTrack = !ShowTrack;
     break;
   case 't':
-    ShowTrack = !ShowTrack;
+    ShowTestOutput = !ShowTestOutput;
     break;
   case 'f':
     ShowFeet = !ShowFeet;
+    break;
+  case 's':
+    ShowFPS = !ShowFPS;
     break;
   case 'o':
     toggleOnePlayerTestMode(!OnePlayerMode);

@@ -1,8 +1,9 @@
 
 
 void drawFractalTree() {
+  pushMatrix();
   stroke(255); 
-  float offset = width/2;
+  float offset = WindowWidth/2;
   //for (HashMap.Entry<Long, Player> playersEntry : pc.players.entrySet()) {    
     
     //Player p = playersEntry.getValue();
@@ -10,11 +11,12 @@ void drawFractalTree() {
     float a = (mouseX / (float) width) * 90f; // Pick an angle [0;90] deg based on the mouse position
     float theta = radians(a);                 // Convert it to radians 
     translate(offset, WallHeight);            // Start the tree from the bottom of the screen  
-    line(0, 0, 0, -300);                      // Draw a 120px line 
-    translate(0, -300);                       // Move to the end of that line
-    branch(300, theta, 1);                       // Start the recursive branching
+    line(0, 0, 0, -500);                      // Draw a 120px line 
+    translate(0, -500);                       // Move to the end of that line
+    branch(500, theta, 1);                    // Start the recursive branching
     
   //}
+  popMatrix();
 }
 
 

@@ -23,26 +23,26 @@ void drawPlayerTracking()
     Player p = playersEntry.getValue();
 
     // render path of each track
-    if (ShowPath)
-    {
-      if (p.getNumPathPoints() > 1)
-      {
-        stroke(70, 100, 150, 25.0f );        
-        int numPoints = p.getNumPathPoints();
-        int maxDrawnPoints = 300;
-        // show the motion path of each track on the floor    
-        float startX = p.getPathPointX(numPoints - 1);
-        float startY = p.getPathPointY(numPoints - 1);
-        for (int pointID = numPoints - 2; pointID > max(0, numPoints - maxDrawnPoints); pointID--) 
-        {
-          float endX = p.getPathPointX(pointID);
-          float endY = p.getPathPointY(pointID);
-          line(startX, startY, endX, endY);
-          startX = endX;
-          startY = endY;
-        }
-      }
-    }
+    //if (ShowPath)
+    //{
+    //  if (p.getNumPathPoints() > 1)
+    //  {
+    //    stroke(70, 100, 150, 25.0f );        
+    //    int numPoints = p.getNumPathPoints();
+    //    int maxDrawnPoints = 300;
+    //    // show the motion path of each track on the floor    
+    //    float startX = p.getPathPointX(numPoints - 1);
+    //    float startY = p.getPathPointY(numPoints - 1);
+    //    for (int pointID = numPoints - 2; pointID > max(0, numPoints - maxDrawnPoints); pointID--) 
+    //    {
+    //      float endX = p.getPathPointX(pointID);
+    //      float endY = p.getPathPointY(pointID);
+    //      line(startX, startY, endX, endY);
+    //      startX = endX;
+    //      startY = endY;
+    //    }
+    //  }
+    //}
 
     // render tracks = player
     if (ShowTrack)
