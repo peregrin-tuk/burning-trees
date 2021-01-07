@@ -5,17 +5,17 @@
 float cursor_size = 25;
 PFont font;
 
-int shrink = 5;
+int shrink = 2;
 int WindowWidth = 3030/shrink; // for real Deep Space this should be 3030
 int WindowHeight = 3712/shrink; // for real Deep Space this should be 3712
 int WallHeight = 1914/shrink; // for real Deep Space this should be 1914 (Floor is 1798)
 
 boolean ShowTrack = true;
-boolean ShowPath = true;
+boolean ShowPath = false;
 boolean ShowFeet = false;
 boolean OnePlayerMode = false;
 
-int framerate = 60;
+int framerate = 30;
 
 OSCMessaging osc;
 
@@ -59,6 +59,7 @@ void draw()
   drawPlayerTracking();
   osc.sendAllPlayerPositions(pc);
   drawTestVisualization();
+  drawFractalTree();
 }
 
 
