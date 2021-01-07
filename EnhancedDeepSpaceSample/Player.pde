@@ -12,6 +12,7 @@ class Player
     this.tuioId = tuioId;
     this.x = x;
     this.y = y;
+    this.playerColor = playerColors[id];
   }
 
   // --- Pharus Client fields - do not modify these, PharusClient updates it ---
@@ -25,6 +26,7 @@ class Player
 
   // --- additional fields ---
   float amplitude;
+  color playerColor;
   
 
   // --- Some functions that have information about the player ---

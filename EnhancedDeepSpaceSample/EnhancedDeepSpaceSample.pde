@@ -1,6 +1,5 @@
  //<>//
-// Version 3.1
-// Example implemenation which shows the usage of the new PharusClient
+// based on EnhancedDeepSpaceSample Version 3.1
 
 float cursor_size = 25;
 PFont font;
@@ -16,13 +15,24 @@ int ScaledWindowWidth = WindowWidth/shrink;
 int ScaledWindowHeight = WindowHeight/shrink;
 int ScaledWallHeight = WallHeight/shrink;
 
+// debugging
 boolean ShowTrack = true;
 boolean ShowFeet = false;
 boolean ShowTestOutput = false;
 boolean ShowFPS = true;
 boolean OnePlayerMode = false;
 
+// SETTINGS
 int framerate = 60;
+int maxPlayers = 6;
+color[] playerColors = {
+  color(70,183,105),
+  color(30,130,60),
+  color(130,190,130),
+  color(135,200,80),
+  color(180,200,80),
+  color(150,200,185),
+};
 
 OSCMessaging osc;
 
@@ -46,7 +56,7 @@ void setup()
   textFont(font, 18);
   textAlign(CENTER, CENTER);
 
-  initPlayerTracking(10);
+  initPlayerTracking(maxPlayers);
   osc = new OSCMessaging();
 }
 
