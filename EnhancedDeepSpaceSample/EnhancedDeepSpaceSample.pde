@@ -26,15 +26,18 @@ boolean OnePlayerMode = false;
 // SETTINGS
 int framerate = 120;
 int maxPlayers = 6;
-color[] playerColors = {
-  color(70, 183, 105), 
-  color(30, 130, 60), 
-  color(130, 190, 130), 
-  color(135, 200, 80), 
-  color(180, 200, 80), 
-  color(150, 200, 185), 
-};
+
 color trunkColor = color(185, 150, 140);
+color[][] playerColors = {
+  {color( 70, 183, 105), color(199, 36, 177)}, 
+  {color( 30, 130, 60), color(124, 4, 227)}, 
+  {color(130, 190, 130), color(200, 0, 223)}, 
+  {color(135, 200, 80), color(207, 30, 102)}, 
+  {color(180, 200, 80), color(255, 83, 133)}, 
+  {color(150, 200, 185), color( 20, 213, 235)}, 
+};
+color[] backgroundColor = 
+  {color(40, 70, 80), color(57, 29, 42)};
 
 // 
 OSCMessaging osc;
@@ -42,6 +45,7 @@ ArrayList<BinaryTree> trees = new ArrayList<BinaryTree>();
 RectGradient floorGradient;
 int measuredMinFramerate = 120;
 int measuredMaxFramerate = 0;
+float avgDistance = 1;
 
 
 void settings()
@@ -65,6 +69,7 @@ void setup()
   initPlayerTracking(maxPlayers);
   osc = new OSCMessaging();
 
+  // SETTINGS TREES
   Point2D[] positions = {
     new Point(WindowWidth/3, WallHeight+20), 
     new Point(WindowWidth/3*2, WallHeight+20), 
@@ -92,18 +97,15 @@ void setup()
     tree.generateTree();
     trees.add(tree);
   }
-  
-  // GREEN: color(40, 70, 80)
-  // RED: color(57, 29, 42)
 }
 
 
 void draw()
 {
-  background(255); // base color = white
-  osc.sendAllPlayerPositions(pc);
-
   scale(1f/shrink);
+  background(255); // base color = white
+  calcDistancesAndColors();
+  osc.sendAllPlayerPositions(pc);
 
   drawBackground();  
   //drawFractalTree();
@@ -132,36 +134,6 @@ void drawFloor() {
   rect(0, WallHeight, WindowWidth, WindowHeight);
 }
 
-//void drawPlayerShape() {
-//  ArrayList<Point2D> vertices = new ArrayList<Point2D>();
-//  Iterator<HashMap.Entry<Long, Player>> iter = pc.players.entrySet().iterator();
-//  while (iter.hasNext()) 
-//  {
-//    Player p = iter.next().getValue();
-//    vertices.add(new Point2D.Float(p.x, p.y));
-//  }
-//  vertices.sort(new SortByX());
-
-//  fill(60, 90, 100);
-//  noStroke();
-//  beginShape();
-//  vertex(0, WindowHeight);
-//  for(Point2D v: vertices) {
-//    vertex((float)v.getX(), (float)v.getY()-120);
-//  }
-//  vertex(WindowWidth, WindowHeight);
-//  endShape(CLOSE);
-//}
-
-class SortByX implements Comparator<Point2D>
-{
-  @Override
-  public int compare(Point2D a, Point2D b)
-  {
-    return (int)a.getX() - (int)b.getX();
-  }
-}
-
 void showFPS() {
   int fps = (int)frameRate; 
 
@@ -181,6 +153,31 @@ void showFPS() {
   popStyle();
 }
 
+//// DISTANCE CALC ////
+void calcDistancesAndColors() {
+  if (pc.players.size() > 0) {
+    Iterator<HashMap.Entry<Long, Player>> iter = pc.players.entrySet().iterator();
+
+    int sum = 0;
+    while (iter.hasNext()) 
+    {
+      Player p = iter.next().getValue();
+      sum += p.y;
+    }
+
+    float avgY = sum / (float)pc.players.size();
+    avgDistance = (avgY - WallHeight) / (WindowHeight-WallHeight);
+    osc.sendAverageYPosition(avgDistance);
+
+    iter = pc.players.entrySet().iterator();
+    while (iter.hasNext()) 
+    {
+      Player p = iter.next().getValue();
+      p.calcDistance(avgDistance);
+      p.setColor();
+    }
+  }
+}
 
 //// DEBUG & TESTING ////
 
@@ -251,7 +248,7 @@ void toggleOnePlayerTestMode(boolean activate)
 void setPlayerId(int id) {
   if (OnePlayerMode) {
     Iterator<HashMap.Entry<Long, Player>> iter = pc.players.entrySet().iterator();
-    if(!iter.hasNext()) {
+    if (pc.players.entrySet().isEmpty()) {
       pc.availableIDs.pop();
       pc.availableIDs.push(id);
     }

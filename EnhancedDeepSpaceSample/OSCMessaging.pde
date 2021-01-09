@@ -46,6 +46,12 @@ public class OSCMessaging {
     msg.add(avgY);
     oscp5.send(msg, remote);
   }
+  
+  public void sendAverageYPosition(float normalAvgY) {
+    OscMessage msg = new OscMessage("/avgypos");
+    msg.add(normalAvgY);
+    oscp5.send(msg, remote);
+  }
 
 
   // active ->

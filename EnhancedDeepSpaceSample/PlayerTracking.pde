@@ -23,7 +23,7 @@ void drawPlayerTracking()
     Player p = playersEntry.getValue();
 
     // player representation
-    stroke(p.playerColor);
+    stroke(p.currentColor);
     strokeWeight(4);
     noFill();
     //circle(p.x, p.y, 60+p.amplitude*60);

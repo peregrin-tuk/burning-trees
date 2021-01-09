@@ -12,7 +12,8 @@ class Player
     this.tuioId = tuioId;
     this.x = x;
     this.y = y;
-    this.playerColor = id < playerColors.length ? playerColors[id] : color(200, 0, 50);
+    this.startColor = id < playerColors.length ? playerColors[id][0] : color(200, 0, 50);
+    this.endColor   = id < playerColors.length ? playerColors[id][1] : color(200, 0, 50);
   }
 
   // --- Pharus Client fields - do not modify these, PharusClient updates it ---
@@ -26,7 +27,10 @@ class Player
 
   // --- additional fields ---
   float amplitude;
-  color playerColor;
+  float distance;
+  color startColor;
+  color endColor;
+  color currentColor;
   
 
   // --- Some functions that have information about the player ---
@@ -77,8 +81,14 @@ class Player
     return 0;
   }  
 
-  // TODO extend this with additional functions
-
+  //
+  public void calcDistance(float normalAvgY) {
+    this.distance = osc.normalize(this.y-WallHeight, WindowHeight-WallHeight)*0.8 + normalAvgY*0.2;
+  }
+  
+  public void setColor() {
+   this.currentColor = lerpColor(endColor, startColor, this.distance); 
+  }
 }
 
 // helper class for feet

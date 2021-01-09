@@ -16,8 +16,8 @@ class BinaryTree
   float angleVariation; // [0;1]
   float depthVariation; // [0;1]
 
-  float bend; // TODO ? -> bend tree x degrees to the left (-) or right (+)
-  int leafDensity; // TODO how many leaves per branch => need to reduce this number for shorter branches
+  // float bend; // TODO ? -> bend tree x degrees to the left (-) or right (+)
+  // int leafDensity; // TODO how many leaves per branch => need to reduce this number for shorter branches
 
   // internal
   Player player;
@@ -25,7 +25,9 @@ class BinaryTree
   Node root;
   float shrinkFactor = 0.66;
   int leafSize = 14;
-  
+
+
+
   //////// CONSTRUCTORS ////////
 
   // symmetric tree constructor
@@ -60,7 +62,9 @@ class BinaryTree
     this.player = pc.getPlayerById(playerID);
     if (this.player != null) playerIsActive = true;
   }
-  
+
+
+
   //////// GENERATION ////////
 
   public void generateTree() {
@@ -68,9 +72,9 @@ class BinaryTree
   }
 
   private Node generateBranch(int depth, float angle, int size, int startWidth) {
-    
-     Point2D[] leaves = depth > 2 ? generateLeaves(size, startWidth) : new Point2D[]{};
-     Node node = new Node(angle, size, startWidth, leaves);
+
+    Point2D[] leaves = depth > 2 ? generateLeaves(size, startWidth) : new Point2D[]{};
+    Node node = new Node(angle, size, startWidth, depth, leaves);
 
     if (depth < maxDepth && size > 4) {
       depth++;
@@ -94,7 +98,7 @@ class BinaryTree
 
     return node;
   }
-  
+
   private Point2D[] generateLeaves(int size, int startWidth) {
     int number = (int)(0.05 * size + 0.75);
     float dist = startWidth/2 + leafSize;
@@ -105,16 +109,18 @@ class BinaryTree
       int y = (int) random(-(size+leafSize), 0-leafSize);
       leaves[i] = new Point(x, y);
     }
-    
+
     return leaves;
   }
-  
+
+
+
   //////// STATIC DRAWING ////////
 
   public void drawTree() {
     pushMatrix();
     noStroke();
-    fill(playerColors[this.playerID]);
+    fill(playerColors[this.playerID][0]);
     //stroke(0);
     translate((float)position.getX(), (float)position.getY()); 
     drawBranch(root);
@@ -153,13 +159,15 @@ class BinaryTree
     }
   }
 
+
+
   //////// ANIMATED DRAWING ////////
 
   public void drawAnimatedTree() {
     pushMatrix();
     noStroke();
-    fill(playerColors[this.playerID]);
-    //stroke(0);
+    fill(lerpColor(trunkColor, playerColors[this.playerID][0], 0.15));
+    //fill(trunkColor);
     translate((float)position.getX(), (float)position.getY()); 
     rotate(root.angle); // Rotate by angle
 
@@ -205,6 +213,9 @@ class BinaryTree
         animatedSize = node.size + sizeOsc * 3;
       }
       rotate(animatedAngle); // Rotate by angle
+      
+      pushStyle();
+      if (node.depth > 4) fill(playerColors[this.playerID][0]);
 
       beginShape();
       vertex(-node.startWidth/2, 0);
@@ -223,9 +234,10 @@ class BinaryTree
         vertex(0, -animatedSize);
       }
       endShape();
-      
+      popStyle();
+
       drawLeaves(node);
-      
+
 
       translate(0, -animatedSize); // Move to the end of the branch
       drawAnimatedBranch(node.left, -dir, angleOsc, sizeOsc);
@@ -235,27 +247,32 @@ class BinaryTree
   }
 
   private void drawLeaves(Node node) {
-    for(Point2D l: node.leaves) {
-        float x = (float)l.getX() + random(-1,1);
-        float y = (float)l.getY() + random(-1,1);
-        ellipse(x, y, this.leafSize, this.leafSize-2);
-      }
+    pushStyle();
+    fill(playerColors[this.playerID][0]);
+    for (Point2D l : node.leaves) {
+      float x = (float)l.getX() + random(-1, 1);
+      float y = (float)l.getY() + random(-1, 1);
+      ellipse(x, y, this.leafSize, this.leafSize-2);
+    }
+    popStyle();
   }
-  
+
   //////// NODE CLASS ////////
 
   private class Node {
     float angle;
     int size;
     int startWidth;
+    int depth;
     Point2D[] leaves;
     Node left;
     Node right;
 
-    Node(float angle, int size, int startWidth, Point2D[] leaves) {
+    Node(float angle, int size, int startWidth, int depth, Point2D[] leaves) {
       this.angle = angle;
       this.size = size;
       this.startWidth = startWidth;
+      this.depth = depth;
       this.leaves = leaves;
       right = null;
       left = null;
