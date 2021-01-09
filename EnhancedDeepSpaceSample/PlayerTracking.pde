@@ -29,7 +29,8 @@ void drawPlayerTracking()
     //circle(p.x, p.y, 60+p.amplitude*60);
 
     rectMode(CENTER);
-    rect(p.x, p.y, 60+p.amplitude*60, 60+p.amplitude*60, 60-p.amplitude*5-osc.normalize(p.y-WallHeight, WindowHeight-WallHeight));
+    float yNormal = osc.normalize(p.y-WallHeight, WindowHeight-WallHeight);
+    rect(p.x, p.y, 60+p.amplitude*60, 60+p.amplitude*60, yNormal*60 - p.amplitude*5);
     rectMode(CORNER);
 
     // render tracks = player
@@ -46,7 +47,7 @@ void drawPlayerTracking()
       }
       circle(p.x, p.y, cursor_size);
       fill(0);
-      textFont(font, 18);
+      textFont(font, 30);
       text(p.id /*+ "/" + p.tuioId*/, p.x, p.y);
     }
 

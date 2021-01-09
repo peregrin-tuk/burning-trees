@@ -195,7 +195,7 @@ class BinaryTree
   private void drawAnimatedBranch(Node node, int dir, float angleOsc, float sizeOsc) { 
     if (node != null) {
       pushMatrix();
-      float animatedAngle, animatedSize;
+      float animatedAngle = 2, animatedSize = 100;
 
       if (this.playerIsActive) {
         animatedAngle = node.angle + angleOsc * 0.1 * dir + this.player.amplitude / 2 * dir;

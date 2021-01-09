@@ -32,8 +32,8 @@ public class PharusClient extends PApplet
     this.wallHeight = _wallHeight;
     this.maxPlayers = maxPlayers;
     // this is a bit of a hack but need for TuioProcessing to work properly
-    width = parent.width;
-    height = parent.height;
+    // width = parent.width;
+    // height = parent.height;
     tuioProcessing = new TuioProcessing(this); 
 
     parent.registerMethod("dispose", this);
@@ -190,7 +190,7 @@ public class PharusClient extends PApplet
           {
             continue;
           }
-          if (dist(p.x, p.y, tc.getScreenX(width), tc.getScreenY(height - wallHeight) + wallHeight) < jumpDistanceMaxTolerance * width)
+          if (dist(p.x, p.y, tc.getScreenX(WindowWidth), tc.getScreenY(WindowHeight - wallHeight) + wallHeight) < jumpDistanceMaxTolerance * WindowWidth)
           {
             // swap previous TUIO id to new id
             println("updating tuio id of player " + p.id + " from " + p.tuioId + " to " + tc.getSessionID());
@@ -198,8 +198,8 @@ public class PharusClient extends PApplet
             players.put(tc.getSessionID(), p);
             // update player
             p.age = 0;
-            p.x = tc.getScreenX(width);
-            p.y = tc.getScreenY(height - wallHeight) + wallHeight;
+            p.x = tc.getScreenX(WindowWidth);
+            p.y = tc.getScreenY(WindowHeight - wallHeight) + wallHeight;
             found = true;
             break;
           }
@@ -209,7 +209,7 @@ public class PharusClient extends PApplet
         {
           print(availableIDs);
           try {
-            Player p = new Player(this, availableIDs.pop(), tc.getSessionID(), tc.getScreenX(width), tc.getScreenY(height - wallHeight) + wallHeight);
+            Player p = new Player(this, availableIDs.pop(), tc.getSessionID(), tc.getScreenX(WindowWidth), tc.getScreenY(WindowHeight - wallHeight) + wallHeight);
             players.put(tc.getSessionID(), p);
             firePlayerAddEvent(p);
           } 
@@ -233,7 +233,7 @@ public class PharusClient extends PApplet
       }
       if (p != null)
       {
-        p.feet.add(new Foot(to.getScreenX(width), to.getScreenY(height - wallHeight) + wallHeight));
+        p.feet.add(new Foot(to.getScreenX(WindowWidth), to.getScreenY(WindowHeight - wallHeight) + wallHeight));
       } else
       {
         println("unkown foot id: " + to.getSymbolID());
