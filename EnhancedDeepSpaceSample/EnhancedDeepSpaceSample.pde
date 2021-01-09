@@ -1,5 +1,6 @@
 // based on EnhancedDeepSpaceSample Version 3.1 //<>//
 import java.awt.Point;
+import java.util.*;
 
 float cursor_size = 60;
 PFont font;
@@ -23,7 +24,7 @@ boolean ShowFPS = true;
 boolean OnePlayerMode = false;
 
 // SETTINGS
-int framerate = 60;
+int framerate = 120;
 int maxPlayers = 6;
 color[] playerColors = {
   color(70, 183, 105), 
@@ -35,8 +36,12 @@ color[] playerColors = {
 };
 color trunkColor = color(185, 150, 140);
 
+// 
 OSCMessaging osc;
-List<BinaryTree> trees = new ArrayList<BinaryTree>();
+ArrayList<BinaryTree> trees = new ArrayList<BinaryTree>();
+RectGradient floorGradient;
+int measuredMinFramerate = 120;
+int measuredMaxFramerate = 0;
 
 
 void settings()
@@ -59,34 +64,37 @@ void setup()
 
   initPlayerTracking(maxPlayers);
   osc = new OSCMessaging();
-  
+
   Point2D[] positions = {
-    new Point(WindowWidth/3, WallHeight+20),
-    new Point(WindowWidth/3*2, WallHeight+20),
-    new Point(-20,WallHeight/5),
-    new Point(WindowWidth+20,WallHeight/4),
-    new Point(WindowWidth/6,WallHeight+20),
-    new Point(WindowWidth-100,WallHeight+20)
+    new Point(WindowWidth/3, WallHeight+20), 
+    new Point(WindowWidth/3*2, WallHeight+20), 
+    new Point(-20, WallHeight/5), 
+    new Point(WindowWidth+20, WallHeight/4), 
+    new Point(WindowWidth/6, WallHeight+20), 
+    new Point(WindowWidth-100, WallHeight+20)
   };
-  
+
   float[] rotations = {
-    random(-20, 20),
-    random(-20, 20),
-    random(80, 125),
-    random(-80, -125),
-    random(-10, 40),
+    random(-20, 20), 
+    random(-20, 20), 
+    random(80, 125), 
+    random(-80, -125), 
+    random(-10, 40), 
     random(-40, -10)
   };
-  
-  for(int id = 0; id < maxPlayers; id++) {
+
+  for (int id = 0; id < maxPlayers; id++) {
     Point2D p = positions[id];
     float r = rotations[id];
-    int h = (int)random(300,650);
+    int h = (int)random(300, 650);
     int w = (int)random(30, 60);
     BinaryTree tree = new BinaryTree(id, p, r, 7, h, w, 35, 0.4, 0.1, 0.7, 0.5);
     tree.generateTree();
     trees.add(tree);
   }
+  
+  // GREEN: color(40, 70, 80)
+  // RED: color(57, 29, 42)
 }
 
 
@@ -99,7 +107,7 @@ void draw()
 
   drawBackground();  
   //drawFractalTree();
-  for(BinaryTree t: trees) {
+  for (BinaryTree t : trees) {
     t.drawAnimatedTree();
   }
   drawFloor();
@@ -108,6 +116,7 @@ void draw()
   if (ShowFPS) showFPS();
   if (ShowTestOutput) drawTestVisualization();
 }
+
 
 
 //// DRAWING METHODS ////
@@ -123,10 +132,53 @@ void drawFloor() {
   rect(0, WallHeight, WindowWidth, WindowHeight);
 }
 
+//void drawPlayerShape() {
+//  ArrayList<Point2D> vertices = new ArrayList<Point2D>();
+//  Iterator<HashMap.Entry<Long, Player>> iter = pc.players.entrySet().iterator();
+//  while (iter.hasNext()) 
+//  {
+//    Player p = iter.next().getValue();
+//    vertices.add(new Point2D.Float(p.x, p.y));
+//  }
+//  vertices.sort(new SortByX());
+
+//  fill(60, 90, 100);
+//  noStroke();
+//  beginShape();
+//  vertex(0, WindowHeight);
+//  for(Point2D v: vertices) {
+//    vertex((float)v.getX(), (float)v.getY()-120);
+//  }
+//  vertex(WindowWidth, WindowHeight);
+//  endShape(CLOSE);
+//}
+
+class SortByX implements Comparator<Point2D>
+{
+  @Override
+  public int compare(Point2D a, Point2D b)
+  {
+    return (int)a.getX() - (int)b.getX();
+  }
+}
+
 void showFPS() {
+  int fps = (int)frameRate; 
+
+  pushStyle();
+  noStroke();
+  fill(70, 100, 150);
+  rect(WindowWidth/2-200, 0, 400, 140);
   fill(255);
-  textFont(font, 36);
-  text((int)frameRate + " FPS", WindowWidth / 2, 30);
+  textFont(font, 40);
+  text(fps + " FPS", WindowWidth / 2, 40);
+  if (frameCount > 60) { 
+    if (fps < measuredMinFramerate) measuredMinFramerate = fps;
+    if (fps > measuredMaxFramerate) measuredMaxFramerate = fps;
+    textFont(font, 38);
+    text("min " + measuredMinFramerate + "  max " + measuredMaxFramerate, WindowWidth / 2, 90);
+  }
+  popStyle();
 }
 
 
