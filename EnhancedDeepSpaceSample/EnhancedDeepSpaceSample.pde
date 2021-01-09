@@ -42,7 +42,6 @@ color[] backgroundColor =
 // 
 OSCMessaging osc;
 ArrayList<BinaryTree> trees = new ArrayList<BinaryTree>();
-RectGradient floorGradient;
 int measuredMinFramerate = 120;
 int measuredMaxFramerate = 0;
 float avgDistance = 1;
