@@ -40,30 +40,6 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-146",
-					"maxclass" : "toggle",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 747.5, 484.5, 24.0, 24.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-104",
-					"maxclass" : "toggle",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 727.5, 464.5, 24.0, 24.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-32",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -167,10 +143,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Google Drive\\burning_trees\\BT_loops\\drums_06.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\drums_06.wav",
 								"filename" : "drums_06.wav",
 								"filekind" : "audiofile",
-								"id" : "u018000988",
+								"id" : "u878000904",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -206,10 +182,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Google Drive\\burning_trees\\BT_loops\\drums_05.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\drums_05.wav",
 								"filename" : "drums_05.wav",
 								"filekind" : "audiofile",
-								"id" : "u372000985",
+								"id" : "u754000901",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -267,10 +243,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Google Drive\\burning_trees\\BT_loops\\drums_04.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\drums_04.wav",
 								"filename" : "drums_04.wav",
 								"filekind" : "audiofile",
-								"id" : "u499000982",
+								"id" : "u138000898",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -306,10 +282,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Google Drive\\burning_trees\\BT_loops\\drums_03.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\drums_03.wav",
 								"filename" : "drums_03.wav",
 								"filekind" : "audiofile",
-								"id" : "u240000979",
+								"id" : "u315000895",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -391,10 +367,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Google Drive\\burning_trees\\BT_loops\\drums_02.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\drums_02.wav",
 								"filename" : "drums_02.wav",
 								"filekind" : "audiofile",
-								"id" : "u213000976",
+								"id" : "u161000892",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -430,10 +406,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Google Drive\\burning_trees\\BT_loops\\drums_01.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\drums_01.wav",
 								"filename" : "drums_01.wav",
 								"filekind" : "audiofile",
-								"id" : "u977000973",
+								"id" : "u447000889",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -2707,7 +2683,6 @@
 					}
 ,
 					"patching_rect" : [ 1097.508524298667908, 245.05942964553833, 85.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2866,7 +2841,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-106",
@@ -5740,10 +5714,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "guitar_06.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\guitar_06.wav",
 								"filename" : "guitar_06.wav",
 								"filekind" : "audiofile",
-								"id" : "u177002163",
+								"id" : "u244000879",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -5779,10 +5753,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "guitar_05.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\guitar_05.wav",
 								"filename" : "guitar_05.wav",
 								"filekind" : "audiofile",
-								"id" : "u173002160",
+								"id" : "u211000875",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -5840,10 +5814,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "guitar_04.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\guitar_04.wav",
 								"filename" : "guitar_04.wav",
 								"filekind" : "audiofile",
-								"id" : "u687002157",
+								"id" : "u710000871",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -5879,10 +5853,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "guitar_03.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\guitar_03.wav",
 								"filename" : "guitar_03.wav",
 								"filekind" : "audiofile",
-								"id" : "u286002154",
+								"id" : "u854000867",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -5964,10 +5938,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "guitar_02.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\guitar_02.wav",
 								"filename" : "guitar_02.wav",
 								"filekind" : "audiofile",
-								"id" : "u742002151",
+								"id" : "u785000863",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -6003,10 +5977,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "guitar_01.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\guitar_01.wav",
 								"filename" : "guitar_01.wav",
 								"filekind" : "audiofile",
-								"id" : "u212002148",
+								"id" : "u144000859",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -8838,10 +8812,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "clav_04.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\clav_04.wav",
 								"filename" : "clav_04.wav",
 								"filekind" : "audiofile",
-								"id" : "u385001984",
+								"id" : "u747000855",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -8877,10 +8851,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "clav_03.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\clav_03.wav",
 								"filename" : "clav_03.wav",
 								"filekind" : "audiofile",
-								"id" : "u903001981",
+								"id" : "u735000851",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -8962,10 +8936,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "clav_02.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\clav_02.wav",
 								"filename" : "clav_02.wav",
 								"filekind" : "audiofile",
-								"id" : "u799001978",
+								"id" : "u116000847",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -9001,10 +8975,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "clav_01.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\clav_01.wav",
 								"filename" : "clav_01.wav",
 								"filekind" : "audiofile",
-								"id" : "u786001975",
+								"id" : "u357000843",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -12156,10 +12130,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "C:\\Users\\jsalh\\Google Drive\\burning_trees\\BT_loops\\tantan_04.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\tantan_04.wav",
 								"filename" : "tantan_04.wav",
 								"filekind" : "audiofile",
-								"id" : "u255000749",
+								"id" : "u619000840",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -12195,10 +12169,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "tantan_03.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\tantan_03.wav",
 								"filename" : "tantan_03.wav",
 								"filekind" : "audiofile",
-								"id" : "u508001821",
+								"id" : "u065000836",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -12280,10 +12254,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "tantan_02.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\tantan_02.wav",
 								"filename" : "tantan_02.wav",
 								"filekind" : "audiofile",
-								"id" : "u237001818",
+								"id" : "u576000832",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -12319,10 +12293,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "tantan_01.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\tantan_01.wav",
 								"filename" : "tantan_01.wav",
 								"filekind" : "audiofile",
-								"id" : "u506001815",
+								"id" : "u469000828",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20230,10 +20204,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "agogo_06.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\agogo_06.wav",
 								"filename" : "agogo_06.wav",
 								"filekind" : "audiofile",
-								"id" : "u341001665",
+								"id" : "u062000824",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20269,10 +20243,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "agogo_05.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\agogo_05.wav",
 								"filename" : "agogo_05.wav",
 								"filekind" : "audiofile",
-								"id" : "u924001662",
+								"id" : "u002000820",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20330,10 +20304,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "agogo_04.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\agogo_04.wav",
 								"filename" : "agogo_04.wav",
 								"filekind" : "audiofile",
-								"id" : "u902001659",
+								"id" : "u900000816",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20369,10 +20343,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "agogo_03.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\agogo_03.wav",
 								"filename" : "agogo_03.wav",
 								"filekind" : "audiofile",
-								"id" : "u812001656",
+								"id" : "u122000812",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20454,10 +20428,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "agogo_02.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\agogo_02.wav",
 								"filename" : "agogo_02.wav",
 								"filekind" : "audiofile",
-								"id" : "u097001653",
+								"id" : "u343000808",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20493,10 +20467,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "agogo_01.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\agogo_01.wav",
 								"filename" : "agogo_01.wav",
 								"filekind" : "audiofile",
-								"id" : "u248001650",
+								"id" : "u874000804",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20632,10 +20606,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "shakers_06.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\shakers_06.wav",
 								"filename" : "shakers_06.wav",
 								"filekind" : "audiofile",
-								"id" : "u746000613",
+								"id" : "u839000800",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20671,10 +20645,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "shakers_05.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\shakers_05.wav",
 								"filename" : "shakers_05.wav",
 								"filekind" : "audiofile",
-								"id" : "u838000610",
+								"id" : "u635000796",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20732,10 +20706,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "shakers_04.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\shakers_04.wav",
 								"filename" : "shakers_04.wav",
 								"filekind" : "audiofile",
-								"id" : "u584000607",
+								"id" : "u841000792",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -20771,10 +20745,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "shakers_03.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\shakers_03.wav",
 								"filename" : "shakers_03.wav",
 								"filekind" : "audiofile",
-								"id" : "u652000604",
+								"id" : "u921000788",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -23510,10 +23484,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "shakers_02.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\shakers_02.wav",
 								"filename" : "shakers_02.wav",
 								"filekind" : "audiofile",
-								"id" : "u793000492",
+								"id" : "u657000785",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -23756,10 +23730,10 @@
 					"clipheight" : 48.0,
 					"data" : 					{
 						"clips" : [ 							{
-								"absolutepath" : "shakers_01.wav",
+								"absolutepath" : "C:\\Users\\jsalh\\Documents\\GitHub\\burning-trees\\MAX\\burningTrees_MaxPatch_2\\media\\shakers_01.wav",
 								"filename" : "shakers_01.wav",
 								"filekind" : "audiofile",
-								"id" : "u856000489",
+								"id" : "u475000781",
 								"selection" : [ 0.0, 1.0 ],
 								"loop" : 1,
 								"content_state" : 								{
@@ -26332,8 +26306,8 @@
 			}
 , 			{
 				"name" : "tantan_04.wav",
-				"bootpath" : "~/Google Drive/burning_trees/BT_loops",
-				"patcherrelativepath" : "../../../../../../Google Drive/burning_trees/BT_loops",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/media",
+				"patcherrelativepath" : "../media",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
@@ -26409,43 +26383,43 @@
 			}
 , 			{
 				"name" : "drums_01.wav",
-				"bootpath" : "~/Google Drive/burning_trees/BT_loops",
-				"patcherrelativepath" : "../../../../../../Google Drive/burning_trees/BT_loops",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/media",
+				"patcherrelativepath" : "../media",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "drums_02.wav",
-				"bootpath" : "~/Google Drive/burning_trees/BT_loops",
-				"patcherrelativepath" : "../../../../../../Google Drive/burning_trees/BT_loops",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/media",
+				"patcherrelativepath" : "../media",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "drums_03.wav",
-				"bootpath" : "~/Google Drive/burning_trees/BT_loops",
-				"patcherrelativepath" : "../../../../../../Google Drive/burning_trees/BT_loops",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/media",
+				"patcherrelativepath" : "../media",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "drums_04.wav",
-				"bootpath" : "~/Google Drive/burning_trees/BT_loops",
-				"patcherrelativepath" : "../../../../../../Google Drive/burning_trees/BT_loops",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/media",
+				"patcherrelativepath" : "../media",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "drums_05.wav",
-				"bootpath" : "~/Google Drive/burning_trees/BT_loops",
-				"patcherrelativepath" : "../../../../../../Google Drive/burning_trees/BT_loops",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/media",
+				"patcherrelativepath" : "../media",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "drums_06.wav",
-				"bootpath" : "~/Google Drive/burning_trees/BT_loops",
-				"patcherrelativepath" : "../../../../../../Google Drive/burning_trees/BT_loops",
+				"bootpath" : "~/Documents/GitHub/burning-trees/MAX/burningTrees_MaxPatch_2/media",
+				"patcherrelativepath" : "../media",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
