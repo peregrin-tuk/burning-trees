@@ -24,7 +24,7 @@ boolean ShowFPS = true;
 boolean OnePlayerMode = false;
 
 // SETTINGS
-int framerate = 120;
+int framerate = 60;
 int maxPlayers = 6;
 
 color trunkColor = color(185, 150, 140);
@@ -93,7 +93,7 @@ void setup()
     float r = rotations[id];
     int h = (int)random(300, 650);
     int w = (int)random(30, 60);
-    BinaryTree tree = new BinaryTree(id, p, r, 7, h, w, 35, 0.4, 0.1, 0.7, 0.5);
+    BinaryTree tree = new BinaryTree(id, p, r, 7, h, w, 35, 0.4, 0.1, 0.7, 0.5, true);
     tree.generateTree();
     trees.add(tree);
   }
@@ -109,7 +109,7 @@ void draw()
 
   drawBackground();  
   //drawFractalTree();
-  for (BinaryTree t : trees) {
+  for (BinaryTree t : trees) {  
     t.drawAnimatedTree();
   }
   drawFloor();
@@ -125,12 +125,12 @@ void draw()
 
 void drawBackground() {
   noStroke();
-  fill(40, 70, 80);
+  fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
   rect(0, 0, WindowWidth, WallHeight);
 }
 
 void drawFloor() {
-  fill(40, 70, 80);
+  fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
   rect(0, WallHeight, WindowWidth, WindowHeight);
 }
 

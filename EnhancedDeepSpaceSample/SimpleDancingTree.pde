@@ -8,7 +8,7 @@ void drawFractalTree() {
     
     //Player p = playersEntry.getValue();
     // float a = p.amplitude * 90f;
-    float a = (mouseX / (float) width) * 90f; // Pick an angle [0;90] deg based on the mouse position
+    float a = avgDistance * 90f; // Pick an angle [0;90] deg
     float theta = radians(a);                 // Convert it to radians 
     translate(offset, WallHeight);            // Start the tree from the bottom of the screen  
     line(0, 0, 0, -500);                      // Draw a 120px line 

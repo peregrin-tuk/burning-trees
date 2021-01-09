@@ -14,6 +14,7 @@ class Player
     this.y = y;
     this.startColor = id < playerColors.length ? playerColors[id][0] : color(200, 0, 50);
     this.endColor   = id < playerColors.length ? playerColors[id][1] : color(200, 0, 50);
+    this.currentColor = this.startColor;
   }
 
   // --- Pharus Client fields - do not modify these, PharusClient updates it ---

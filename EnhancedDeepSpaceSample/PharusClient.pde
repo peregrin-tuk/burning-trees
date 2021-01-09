@@ -207,14 +207,13 @@ public class PharusClient extends PApplet
         // add as new player if nothing found
         if (!found)
         {
-          print(availableIDs);
           try {
             Player p = new Player(this, availableIDs.pop(), tc.getSessionID(), tc.getScreenX(WindowWidth), tc.getScreenY(WindowHeight - wallHeight) + wallHeight);
             players.put(tc.getSessionID(), p);
             firePlayerAddEvent(p);
           } 
           catch(EmptyStackException e) {
-            print("Couldn't add new player - max. number of players in game reached.");
+            // print("Couldn't add new player - max. number of players in game reached.");
           }
         }
       }
@@ -236,7 +235,7 @@ public class PharusClient extends PApplet
         p.feet.add(new Foot(to.getScreenX(WindowWidth), to.getScreenY(WindowHeight - wallHeight) + wallHeight));
       } else
       {
-        println("unkown foot id: " + to.getSymbolID());
+        //println("unkown foot id: " + to.getSymbolID());
       }
     }
 

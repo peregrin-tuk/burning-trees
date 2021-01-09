@@ -15,6 +15,8 @@ class BinaryTree
   float widthVariation; // [0;1]
   float angleVariation; // [0;1]
   float depthVariation; // [0;1]
+  
+  boolean drawLeaves;
 
   // float bend; // TODO ? -> bend tree x degrees to the left (-) or right (+)
   // int leafDensity; // TODO how many leaves per branch => need to reduce this number for shorter branches
@@ -45,7 +47,7 @@ class BinaryTree
   }
 
   // randomized tree constructor
-  public BinaryTree(int playerID, Point2D position, float rotation, int maxDepth, int trunkLength, int trunkWidth, float branchingAngle, float lengthVariation, float widthVariation, float angleVariation, float depthVariation) {
+  public BinaryTree(int playerID, Point2D position, float rotation, int maxDepth, int trunkLength, int trunkWidth, float branchingAngle, float lengthVariation, float widthVariation, float angleVariation, float depthVariation, boolean drawLeaves) {
     this.playerID = playerID;
     this.position = position;
     this.rotation = radians(rotation);
@@ -58,6 +60,8 @@ class BinaryTree
     this.widthVariation = widthVariation;
     this.angleVariation = angleVariation;
     this.depthVariation = depthVariation;
+    
+    this.drawLeaves = drawLeaves;
 
     this.player = pc.getPlayerById(playerID);
     if (this.player != null) playerIsActive = true;
@@ -236,7 +240,7 @@ class BinaryTree
       endShape();
       popStyle();
 
-      drawLeaves(node);
+      if(this.drawLeaves) drawLeaves(node);
 
 
       translate(0, -animatedSize); // Move to the end of the branch
