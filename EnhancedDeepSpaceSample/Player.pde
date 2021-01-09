@@ -12,7 +12,7 @@ class Player
     this.tuioId = tuioId;
     this.x = x;
     this.y = y;
-    this.playerColor = playerColors[id];
+    this.playerColor = id < playerColors.length ? playerColors[id] : color(200, 0, 50);
   }
 
   // --- Pharus Client fields - do not modify these, PharusClient updates it ---

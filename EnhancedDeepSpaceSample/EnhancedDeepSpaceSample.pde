@@ -1,7 +1,7 @@
 // based on EnhancedDeepSpaceSample Version 3.1 //<>//
 import java.awt.Point;
 
-float cursor_size = 25;
+float cursor_size = 60;
 PFont font;
 
 // deep space display sizes
@@ -10,13 +10,13 @@ int WindowHeight = 3712;
 int WallHeight = 1914; // should be 1914 (Floor is 1798)
 
 // scaled display sizes
-int shrink = 2;
+int shrink = 3;
 int ScaledWindowWidth = WindowWidth/shrink; 
 int ScaledWindowHeight = WindowHeight/shrink;
 int ScaledWallHeight = WallHeight/shrink;
 
 // debugging
-boolean ShowTrack = true;
+boolean ShowTrack = false;
 boolean ShowFeet = false;
 boolean ShowTestOutput = false;
 boolean ShowFPS = true;
@@ -61,19 +61,19 @@ void setup()
   osc = new OSCMessaging();
   
   Point2D[] positions = {
-    new Point(WindowWidth/3, WallHeight+5),
-    new Point(WindowWidth/3*2, WallHeight+5),
-    new Point(-5,WallHeight/6),
-    new Point(WindowWidth+5,WallHeight/5),
-    new Point(WindowWidth/6,WallHeight+5),
-    new Point(WindowWidth-100,WallHeight+5)
+    new Point(WindowWidth/3, WallHeight+20),
+    new Point(WindowWidth/3*2, WallHeight+20),
+    new Point(-20,WallHeight/5),
+    new Point(WindowWidth+20,WallHeight/4),
+    new Point(WindowWidth/6,WallHeight+20),
+    new Point(WindowWidth-100,WallHeight+20)
   };
   
   float[] rotations = {
     random(-20, 20),
     random(-20, 20),
-    random(45, 135),
-    random(-45, -135),
+    random(80, 125),
+    random(-80, -125),
     random(-10, 40),
     random(-40, -10)
   };
@@ -81,8 +81,8 @@ void setup()
   for(int id = 0; id < maxPlayers; id++) {
     Point2D p = positions[id];
     float r = rotations[id];
-    int h = (int)random(200,550);
-    int w = (int)random(30, 50);
+    int h = (int)random(300,650);
+    int w = (int)random(30, 60);
     BinaryTree tree = new BinaryTree(id, p, r, 7, h, w, 35, 0.4, 0.1, 0.7, 0.5);
     tree.generateTree();
     trees.add(tree);
@@ -93,8 +93,6 @@ void setup()
 void draw()
 {
   background(255); // base color = white
-
-  drawPlayerTracking();
   osc.sendAllPlayerPositions(pc);
 
   scale(1f/shrink);
@@ -102,8 +100,10 @@ void draw()
   drawBackground();  
   //drawFractalTree();
   for(BinaryTree t: trees) {
-    t.drawTree();
+    t.drawAnimatedTree();
   }
+  drawFloor();
+  drawPlayerTracking();
 
   if (ShowFPS) showFPS();
   if (ShowTestOutput) drawTestVisualization();
@@ -116,6 +116,11 @@ void drawBackground() {
   noStroke();
   fill(40, 70, 80);
   rect(0, 0, WindowWidth, WallHeight);
+}
+
+void drawFloor() {
+  fill(40, 70, 80);
+  rect(0, WallHeight, WindowWidth, WindowHeight);
 }
 
 void showFPS() {

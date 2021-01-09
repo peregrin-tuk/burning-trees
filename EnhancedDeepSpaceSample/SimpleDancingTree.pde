@@ -27,7 +27,7 @@ void branch(float h, float theta, int dir) {
   if (h > 15) {
 
     //float hr = h + h*random(-0.2,0.2);
-    float hr = h + cos(frameCount/8f)*2;
+    float hr = h + cos(millis()/800f)*2;
     
     // right branch
     pushMatrix();      // Save the current state of transformation
@@ -35,7 +35,7 @@ void branch(float h, float theta, int dir) {
     line(0, 0, 0, -hr); // Draw the branch
     translate(0, -hr);  // Move to the end of the branch
     //branch(h, theta + random(-0.2,0.2));  // call self to draw two new branches
-    branch(h, theta + sin(frameCount/10f)/5 * dir, dir*-1); 
+    branch(h, theta + sin(millis()/1000f)/6 * dir, dir*-1); 
     popMatrix();       // "pop" in order to restore the previous matrix state
 
     // left branch
@@ -43,7 +43,7 @@ void branch(float h, float theta, int dir) {
     rotate(-theta);
     line(0, 0, 0, -hr);
     translate(0, -hr);
-    branch(h, theta - sin((frameCount+10)/10f)/5 * dir, dir*-1);
+    branch(h, theta - sin(millis()/1000f+1)/6 * dir, dir*-1);
     popMatrix();
   }
 }

@@ -167,8 +167,8 @@ public class PharusClient extends PApplet
       {
         // update player
         p.age = 0;
-        p.x = tc.getScreenX(width);
-        p.y = tc.getScreenY(height - wallHeight) + wallHeight;
+        p.x = tc.getScreenX(WindowWidth);
+        p.y = tc.getScreenY(WindowHeight - wallHeight) + wallHeight;
         tcl.remove(i);
       } else
       {

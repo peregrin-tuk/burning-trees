@@ -10,9 +10,9 @@ void initPlayerTracking(int maxPlayers)
 {
   pc = new PharusClient(this, WallHeight, maxPlayers);
   // age is measured in update cycles, with 25 fps this is 2 seconds
-  pc.setMaxAge(50);
+  pc.setMaxAge(20);
   // max distance allowed when jumping between last known position and potential landing position, unit is in pixels relative to window width
-  pc.setjumpDistanceMaxTolerance(0.05f);  
+  pc.setjumpDistanceMaxTolerance(0.05f);
 }
 
 void drawPlayerTracking()
@@ -22,27 +22,15 @@ void drawPlayerTracking()
   {
     Player p = playersEntry.getValue();
 
-    // render path of each track
-    //if (ShowPath)
-    //{
-    //  if (p.getNumPathPoints() > 1)
-    //  {
-    //    stroke(70, 100, 150, 25.0f );        
-    //    int numPoints = p.getNumPathPoints();
-    //    int maxDrawnPoints = 300;
-    //    // show the motion path of each track on the floor    
-    //    float startX = p.getPathPointX(numPoints - 1);
-    //    float startY = p.getPathPointY(numPoints - 1);
-    //    for (int pointID = numPoints - 2; pointID > max(0, numPoints - maxDrawnPoints); pointID--) 
-    //    {
-    //      float endX = p.getPathPointX(pointID);
-    //      float endY = p.getPathPointY(pointID);
-    //      line(startX, startY, endX, endY);
-    //      startX = endX;
-    //      startY = endY;
-    //    }
-    //  }
-    //}
+    // player representation
+    stroke(p.playerColor);
+    strokeWeight(4);
+    noFill();
+    //circle(p.x, p.y, 60+p.amplitude*60);
+
+    rectMode(CENTER);
+    rect(p.x, p.y, 60+p.amplitude*60, 60+p.amplitude*60, 60-p.amplitude*5-osc.normalize(p.y-WallHeight, WindowHeight-WallHeight));
+    rectMode(CORNER);
 
     // render tracks = player
     if (ShowTrack)
@@ -52,12 +40,11 @@ void drawPlayerTracking()
       if (p.isJumping())
       {
         fill(192, 0, 0);
-      }
-      else
+      } else
       {
         fill(192, 192, 192);
       }
-      ellipse(p.x, p.y, cursor_size, cursor_size);
+      circle(p.x, p.y, cursor_size);
       fill(0);
       textFont(font, 18);
       text(p.id /*+ "/" + p.tuioId*/, p.x, p.y);
@@ -72,7 +59,7 @@ void drawPlayerTracking()
       // paint all the feet that we can find for one character
       for (Foot f : p.feet)
       {
-        ellipse(f.x, f.y, cursor_size / 3, cursor_size / 3);
+        circle(f.x, f.y, cursor_size / 3);
       }
     }
   }
@@ -81,13 +68,27 @@ void drawPlayerTracking()
 void pharusPlayerAdded(Player player)
 {
   println("Player " + player.id + " added");
-  
+
   osc.sendisActive(player.id, true);
+
+  for (BinaryTree t : trees) {
+    if (t.playerID == player.id) {
+      t.player = player;
+      t.playerIsActive = true;
+    }
+  }
 }
 
 void pharusPlayerRemoved(Player player)
 {
   println("Player " + player.id + " removed");
-  
+
   osc.sendisActive(player.id, false);
+
+  for (BinaryTree t : trees) {
+    if (t.playerID == player.id) {
+      t.player = null;
+      t.playerIsActive = false;
+    }
+  }
 }
