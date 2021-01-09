@@ -251,6 +251,10 @@ void toggleOnePlayerTestMode(boolean activate)
 void setPlayerId(int id) {
   if (OnePlayerMode) {
     Iterator<HashMap.Entry<Long, Player>> iter = pc.players.entrySet().iterator();
+    if(!iter.hasNext()) {
+      pc.availableIDs.pop();
+      pc.availableIDs.push(id);
+    }
     while (iter.hasNext()) 
     {
       Player p = iter.next().getValue();
