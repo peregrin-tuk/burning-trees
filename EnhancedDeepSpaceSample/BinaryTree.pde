@@ -218,8 +218,12 @@ class BinaryTree
       }
       rotate(animatedAngle); // Rotate by angle
       
-      pushStyle();
-      if (node.depth > 4) fill(playerColors[this.playerID][0]);
+      if (node.depth > 4) {
+        fill(playerColors[this.playerID][0]);
+      } else {
+        fill(lerpColor(trunkColor, playerColors[this.playerID][0], 0.15));
+        //fill(trunkColor);
+      };
 
       beginShape();
       vertex(-node.startWidth/2, 0);
@@ -238,7 +242,6 @@ class BinaryTree
         vertex(0, -animatedSize);
       }
       endShape();
-      popStyle();
 
       if(this.drawLeaves) drawLeaves(node);
 
@@ -251,14 +254,12 @@ class BinaryTree
   }
 
   private void drawLeaves(Node node) {
-    pushStyle();
     fill(playerColors[this.playerID][0]);
     for (Point2D l : node.leaves) {
       float x = (float)l.getX() + random(-1, 1);
       float y = (float)l.getY() + random(-1, 1);
       ellipse(x, y, this.leafSize, this.leafSize-2);
     }
-    popStyle();
   }
 
   //////// NODE CLASS ////////

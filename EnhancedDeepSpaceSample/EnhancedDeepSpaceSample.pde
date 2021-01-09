@@ -108,9 +108,7 @@ void draw()
 
   drawBackground();  
   //drawFractalTree();
-  for (BinaryTree t : trees) {  
-    t.drawAnimatedTree();
-  }
+  for (BinaryTree t : trees) { t.drawAnimatedTree(); }
   drawFloor();
   drawPlayerTracking();
 
