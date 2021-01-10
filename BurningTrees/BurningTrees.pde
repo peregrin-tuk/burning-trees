@@ -2,6 +2,12 @@
 import java.awt.Point;
 import java.util.*;
 
+/////   SETTINGS   //////////////////////////////////////////////////////////
+int maxMinutes = 1;        // Max. duration of game
+boolean fullScreen = true;
+int shrink = 3;             // ignored if fullScreen = true
+/////////////////////////////////////////////////////////////////////////////
+
 PFont font;
 PFont endFont;
 PFont endFontSmall;
@@ -13,7 +19,6 @@ int WindowHeight = 4320;
 int WallHeight = 2160;
 
 ///// scaled display sizes
-int shrink = 3;
 int ScaledWindowWidth = WindowWidth/shrink; 
 int ScaledWindowHeight = WindowHeight/shrink;
 int ScaledWallHeight = WallHeight/shrink;
@@ -26,10 +31,10 @@ boolean ShowFPS = false;
 boolean OnePlayerMode = false;
 float cursor_size = 60;
 
-///// SETTINGS
+// Settings
 int framerate = 60;
 int maxPlayers = 6;
-int maxPlayingTime = 1000*60 * 5; // max time at avgY=1 in ms; 
+int maxPlayingTime = 1000*60 * maxMinutes; // max time at avgY=1 in ms; 
 int timeDistanceFactor = 24; // at avgY=0 max time will be maxPlayingTime/timeDistanceFactor
 int timeLeft = maxPlayingTime;
 
@@ -56,15 +61,14 @@ int lastFrameTime = 0;
 
 void settings()
 {
-  size(ScaledWindowWidth, ScaledWindowHeight);
+  if (fullScreen) fullScreen(P2D, SPAN);
+  else size(ScaledWindowWidth, ScaledWindowHeight);
 }
 
 
 void setup()
 {
-  // fullScreen(P2D, SPAN);
   frameRate(framerate);
-
   noStroke();
   fill(0);
 
@@ -111,7 +115,7 @@ void setup()
 
 void draw()
 {
-  scale(1f/shrink);
+  if (!fullScreen) scale(1f/shrink);
   background(255); // base color = white
   calcDistancesAndColors();
   calcTimeLeft();
@@ -216,9 +220,6 @@ void keyPressed()
     ShowFPS = ShowTestOutput;
     break;
   case 'f':
-    ShowFeet = !ShowFeet;
-    break;
-  case 's':
     ShowFPS = !ShowFPS;
     break;
   case 'o':
