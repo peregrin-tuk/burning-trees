@@ -14,7 +14,7 @@ int WindowHeight = 4320;
 int WallHeight = 2160;
 
 ///// scaled display sizes
-int shrink = 3;
+int shrink = 2;
 int ScaledWindowWidth = WindowWidth/shrink; 
 int ScaledWindowHeight = WindowHeight/shrink;
 int ScaledWallHeight = WallHeight/shrink;
@@ -210,7 +210,7 @@ void calcTimeLeft() {
   
   lastFrameTime = millis();
   
-  println("TIME LEFT: " + timeLeft/1000);
+  //println("TIME LEFT: " + timeLeft/1000);
 }
 
 

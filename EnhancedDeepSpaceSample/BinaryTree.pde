@@ -260,8 +260,8 @@ class BinaryTree
     else fill(playerColors[this.playerID][0]);
     
     for (Point2D l : node.leaves) {
-      float x = (float)l.getX() + random(-1, 1);
-      float y = (float)l.getY() + random(-1, 1);
+      float x = (float)l.getX(); // + random(-1, 1); // performance
+      float y = (float)l.getY(); // + random(-1, 1);
       ellipse(x, y, this.leafSize, this.leafSize-2);
     }
   }
