@@ -1,16 +1,19 @@
-// based on EnhancedDeepSpaceSample Version 3.1 //<>//
+ //<>//
+// based on EnhancedDeepSpaceSample Version 3.1
 import java.awt.Point;
 import java.util.*;
 
-float cursor_size = 60;
 PFont font;
+PFont endFont;
+PFont endFontSmall;
+PFont endFontSmallBold;
 
 // deep space display sizes
 int WindowWidth = 3840;
 int WindowHeight = 4320;
 int WallHeight = 2160;
 
-// scaled display sizes
+///// scaled display sizes
 int shrink = 3;
 int ScaledWindowWidth = WindowWidth/shrink; 
 int ScaledWindowHeight = WindowHeight/shrink;
@@ -20,12 +23,16 @@ int ScaledWallHeight = WallHeight/shrink;
 boolean ShowTrack = false;
 boolean ShowFeet = false;
 boolean ShowTestOutput = false;
-boolean ShowFPS = true;
+boolean ShowFPS = false;
 boolean OnePlayerMode = false;
+float cursor_size = 60;
 
-// SETTINGS
+///// SETTINGS
 int framerate = 60;
 int maxPlayers = 6;
+int maxPlayingTime = 1000*60 * 3; // max time at avgY=1 in ms; 
+int timeDistanceFactor = 24; // at avgY=0 max time will be maxPlayingTime/timeDistanceFactor
+int timeLeft = maxPlayingTime;
 
 color trunkColor = color(185, 150, 140);
 color[][] playerColors = {
@@ -39,12 +46,13 @@ color[][] playerColors = {
 color[] backgroundColor = 
   {color(40, 70, 80), color(57, 29, 42)};
 
-// 
+// do not change
 OSCMessaging osc;
 ArrayList<BinaryTree> trees = new ArrayList<BinaryTree>();
 int measuredMinFramerate = 120;
 int measuredMaxFramerate = 0;
 float avgDistance = 1;
+int lastFrameTime = 0;
 
 
 void settings()
@@ -62,6 +70,9 @@ void setup()
   fill(0);
 
   font = createFont("Arial", 18);
+  endFont = createFont("Ubuntu-Light.ttf", 64);
+  endFontSmall = createFont("Ubuntu-Light.ttf", 42);
+  endFontSmallBold = createFont("Ubuntu-Medium.ttf", 48);
   textFont(font, 18);
   textAlign(CENTER, CENTER);
 
@@ -104,12 +115,17 @@ void draw()
   scale(1f/shrink);
   background(255); // base color = white
   calcDistancesAndColors();
+  calcTimeLeft();
   osc.sendAllPlayerPositions(pc);
-
-  drawBackground();  
-  //drawFractalTree();
-  for (BinaryTree t : trees) { t.drawAnimatedTree(); }
-  drawFloor();
+  
+  if (timeLeft <= 0) {
+    drawEnd();
+  } else {
+    drawBackground();  
+    //drawFractalTree();
+    for (BinaryTree t : trees) { t.drawAnimatedTree(); }
+    drawFloor();
+  }
   drawPlayerTracking();
 
   if (ShowFPS) showFPS();
@@ -122,7 +138,14 @@ void draw()
 
 void drawBackground() {
   noStroke();
-  fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
+  float realTimeLeft = timeLeft/(-(timeDistanceFactor-1) * avgDistance + timeDistanceFactor);
+  
+  if (realTimeLeft > 2400) {
+    fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
+  } else {
+    if (frameCount % 2 == 0) fill(lerpColor(color(255), backgroundColor[1], osc.normalize(realTimeLeft, 2400)));
+    else fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
+  }
   rect(0, 0, WindowWidth, WallHeight);
 }
 
@@ -150,7 +173,9 @@ void showFPS() {
   popStyle();
 }
 
-//// DISTANCE CALC ////
+
+//// DISTANCE & TIME CALC ////
+
 void calcDistancesAndColors() {
   if (pc.players.size() > 0) {
     Iterator<HashMap.Entry<Long, Player>> iter = pc.players.entrySet().iterator();
@@ -176,6 +201,20 @@ void calcDistancesAndColors() {
   }
 }
 
+void calcTimeLeft() {
+  int deltaTime = millis() - lastFrameTime;
+  float distanceFactor = -(timeDistanceFactor-1) * avgDistance + timeDistanceFactor;
+  
+  timeLeft -= deltaTime * distanceFactor;
+  osc.sendTimeLeft(timeLeft);
+  
+  lastFrameTime = millis();
+  
+  println("TIME LEFT: " + timeLeft/1000);
+}
+
+
+
 //// DEBUG & TESTING ////
 
 void keyPressed()
@@ -187,6 +226,8 @@ void keyPressed()
     break;
   case 't':
     ShowTestOutput = !ShowTestOutput;
+    ShowTrack = ShowTestOutput;
+    ShowFPS = ShowTestOutput;
     break;
   case 'f':
     ShowFeet = !ShowFeet;

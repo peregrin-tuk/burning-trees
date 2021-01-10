@@ -67,7 +67,13 @@ public class OSCMessaging {
 
   // res ->
 
-  // TODO implement as soon as resources variable exists
+  public void sendTimeLeft(int timeLeft) {
+    float res = normalize(timeLeft, maxPlayingTime);
+
+    OscMessage msg = new OscMessage("/res");
+    msg.add(res);
+    oscp5.send(msg, remote);
+  }
 
 
   //// INCOMING SIGNALS ////
