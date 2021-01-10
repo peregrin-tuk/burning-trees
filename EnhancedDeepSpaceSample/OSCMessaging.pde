@@ -92,7 +92,14 @@ public class OSCMessaging {
         }
       }
     }
-    // TODO other values
+    if (msg.checkAddrPattern("/beats")) {
+      int beat = msg.get(0).intValue();
+      println("BEAT: " + beat);
+
+      if(endTriggered && timeFinaleStarted == -1 && beat == 1) {
+        timeFinaleStarted = millis();
+      }
+    }
   }
 
 

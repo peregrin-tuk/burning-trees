@@ -1,3 +1,5 @@
+boolean endTriggered = false;
+int timeFinaleStarted = -1;
 int timeEnded = -1; // ms
 int deltaTime = 0; // ms
 
@@ -28,4 +30,21 @@ void drawEnd() {
 
   fill(color(backgroundColor[1], 10));
   rect(0, WallHeight, WindowWidth, WindowHeight);
+}
+
+
+
+void calcTimeLeft() {
+  int deltaTime = millis() - lastFrameTime;
+  float distanceFactor = -(timeDistanceFactor-1) * avgDistance + timeDistanceFactor;
+  
+  timeLeft -= deltaTime * distanceFactor;
+  
+  if (timeLeft <= 0) {
+    if (!endTriggered) endTriggered = true;
+    if (timeFinaleStarted == -1 || millis() - timeFinaleStarted < 2400) timeLeft = 1;      
+  }
+  
+  osc.sendTimeLeft(timeLeft); 
+  lastFrameTime = millis();
 }

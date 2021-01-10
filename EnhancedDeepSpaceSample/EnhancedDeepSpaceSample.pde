@@ -14,7 +14,7 @@ int WindowHeight = 4320;
 int WallHeight = 2160;
 
 ///// scaled display sizes
-int shrink = 2;
+int shrink = 3;
 int ScaledWindowWidth = WindowWidth/shrink; 
 int ScaledWindowHeight = WindowHeight/shrink;
 int ScaledWallHeight = WallHeight/shrink;
@@ -138,12 +138,11 @@ void draw()
 
 void drawBackground() {
   noStroke();
-  float realTimeLeft = timeLeft/(-(timeDistanceFactor-1) * avgDistance + timeDistanceFactor);
   
-  if (realTimeLeft > 2400) {
+  if (timeFinaleStarted == -1) {
     fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
   } else {
-    if (frameCount % 2 == 0) fill(lerpColor(color(255), backgroundColor[1], osc.normalize(realTimeLeft, 2400)));
+    if (frameCount % 2 == 0) fill(lerpColor(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance), color(255), osc.normalize(millis() - timeFinaleStarted, 2400)));
     else fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
   }
   rect(0, 0, WindowWidth, WallHeight);
@@ -174,7 +173,7 @@ void showFPS() {
 }
 
 
-//// DISTANCE & TIME CALC ////
+//// DISTANCE CALC ////
 
 void calcDistancesAndColors() {
   if (pc.players.size() > 0) {
@@ -199,18 +198,6 @@ void calcDistancesAndColors() {
       p.setColor();
     }
   }
-}
-
-void calcTimeLeft() {
-  int deltaTime = millis() - lastFrameTime;
-  float distanceFactor = -(timeDistanceFactor-1) * avgDistance + timeDistanceFactor;
-  
-  timeLeft -= deltaTime * distanceFactor;
-  osc.sendTimeLeft(timeLeft);
-  
-  lastFrameTime = millis();
-  
-  //println("TIME LEFT: " + timeLeft/1000);
 }
 
 

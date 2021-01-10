@@ -23,13 +23,15 @@ void drawPlayerTracking()
     Player p = playersEntry.getValue();
 
     // player representation
-    stroke(p.currentColor);
+    if (timeEnded == -1) stroke(p.currentColor);
+    else stroke(p.currentColor, 50);
     strokeWeight(5);
     noFill();
 
+    float amp = timeEnded != -1 ? 0f : p.amplitude;
     rectMode(CENTER);
     float yNormal = osc.normalize(p.y-WallHeight, WindowHeight-WallHeight);
-    rect(p.x, p.y, 100+p.amplitude*100, 100+p.amplitude*100, yNormal*100+p.amplitude*100);
+    rect(p.x, p.y, 100+amp*100, 100+amp*100, yNormal*100+amp*100);
     rectMode(CORNER);
 
     // render tracks = player
