@@ -195,7 +195,7 @@ class BinaryTree
 
     translate(0, -root.size); // Move to the end of the branch
 
-    float angleOsc = sin(millis()/2000f + this.playerID);
+    float angleOsc = this.playerIsActive ? sin((float)Math.PI*millis()/600f) : sin(millis()/2000f + this.playerID);
     float sizeOsc = cos(millis()/1400f);
 
     drawAnimatedBranch(root.left, 1, angleOsc, sizeOsc);
@@ -210,8 +210,9 @@ class BinaryTree
       float animatedAngle = 2, animatedSize = 100;
 
       if (this.playerIsActive) {
-        animatedAngle = node.angle + angleOsc * 0.1 * dir + this.player.amplitude / 2 * dir;
-        animatedSize = node.size;
+        float y = Math.max(0, this.player.distance*-1+0.9);
+        animatedAngle = node.angle + angleOsc*0.05 * dir + Math.signum(angleOsc)*Math.max(0, y-0.5)*dir + Math.signum(angleOsc)*(this.player.amplitude * 0.75 * dir *(y+1));
+        animatedSize = node.size + Math.max(0, y-0.5)*this.player.amplitude*100;
       } else {
         animatedAngle = node.angle + angleOsc * 0.1 * dir;
         animatedSize = node.size + sizeOsc * 3;
@@ -219,7 +220,8 @@ class BinaryTree
       rotate(animatedAngle); // Rotate by angle
       
       if (node.depth > 4) {
-        fill(playerColors[this.playerID][0]);
+        if (this.playerIsActive) fill(this.player.currentColor);
+        else fill(playerColors[this.playerID][0]);
       } else {
         fill(lerpColor(trunkColor, playerColors[this.playerID][0], 0.15));
         //fill(trunkColor);
@@ -254,7 +256,9 @@ class BinaryTree
   }
 
   private void drawLeaves(Node node) {
-    fill(playerColors[this.playerID][0]);
+    if (this.playerIsActive) fill(this.player.currentColor);
+    else fill(playerColors[this.playerID][0]);
+    
     for (Point2D l : node.leaves) {
       float x = (float)l.getX() + random(-1, 1);
       float y = (float)l.getY() + random(-1, 1);

@@ -207,13 +207,14 @@ public class PharusClient extends PApplet
         // add as new player if nothing found
         if (!found)
         {
+          println("Available: " + availableIDs);
           try {
             Player p = new Player(this, availableIDs.pop(), tc.getSessionID(), tc.getScreenX(WindowWidth), tc.getScreenY(WindowHeight - wallHeight) + wallHeight);
             players.put(tc.getSessionID(), p);
             firePlayerAddEvent(p);
           } 
           catch(EmptyStackException e) {
-            // print("Couldn't add new player - max. number of players in game reached.");
+            println("Couldn't add new player - max. number of players in game reached.");
           }
         }
       }
