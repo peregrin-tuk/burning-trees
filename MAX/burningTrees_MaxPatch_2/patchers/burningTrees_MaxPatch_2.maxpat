@@ -40,6 +40,19 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"format" : 6,
+					"id" : "obj-100",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1034.796773769639003, 114.50847315788269, 50.0, 22.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-32",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -459,7 +472,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"patching_rect" : [ 863.546773769638776, 392.516937017440796, 29.5, 22.0 ],
-					"text" : "- 0"
+					"text" : "- 4"
 				}
 
 			}
@@ -2813,7 +2826,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 77.0, 1852.0, 929.0 ],
+						"rect" : [ 26.0, 85.0, 1852.0, 929.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -5916,8 +5929,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 156.876060984351398, 2457.016946315765381, 108.0, 22.0 ],
-					"text" : "send~ shaker_02L"
+					"patching_rect" : [ 156.876060984351398, 2457.016946315765381, 102.0, 22.0 ],
+					"text" : "send~ guitar_02L"
 				}
 
 			}
@@ -21300,7 +21313,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ -1878.0, 85.0, 1852.0, 929.0 ],
+						"rect" : [ 26.0, 85.0, 1852.0, 929.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -23787,7 +23800,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-100", 0 ],
+					"order" : 0,
+					"source" : [ "obj-109", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-110", 0 ],
+					"order" : 1,
 					"source" : [ "obj-109", 3 ]
 				}
 
