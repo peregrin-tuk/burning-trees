@@ -195,7 +195,7 @@ class BinaryTree
 
     translate(0, -root.size); // Move to the end of the branch
 
-    float angleOsc = this.playerIsActive ? sin((float)Math.PI*millis()/600f) : sin(millis()/2000f + this.playerID);
+    float angleOsc = sin(millis()/2000f + this.playerID);
     float sizeOsc = cos(millis()/1400f);
 
     drawAnimatedBranch(root.left, 1, angleOsc, sizeOsc);
@@ -211,7 +211,8 @@ class BinaryTree
 
       if (this.playerIsActive) {
         float y = Math.max(0, this.player.distance*-1+0.9);
-        animatedAngle = node.angle + angleOsc*0.05 * dir + Math.signum(angleOsc)*Math.max(0, y-0.5)*dir + Math.signum(angleOsc)*(this.player.amplitude * 0.75 * dir *(y+1));
+        float signum = (int)((Metronome.beat % 2 - 0.5)*2);
+        animatedAngle = node.angle + angleOsc*0.05 * dir + signum*Math.max(0, y-0.5)*dir + signum*(this.player.amplitude * 0.75 * dir *(y+1));
         animatedSize = node.size + Math.max(0, y-0.5)*this.player.amplitude*100;
       } else {
         animatedAngle = node.angle + angleOsc * 0.1 * dir;

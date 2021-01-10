@@ -46,7 +46,7 @@ public class OSCMessaging {
     msg.add(avgY);
     oscp5.send(msg, remote);
   }
-  
+
   public void sendAverageYPosition(float normalAvgY) {
     OscMessage msg = new OscMessage("/avgypos");
     msg.add(normalAvgY);
@@ -94,9 +94,8 @@ public class OSCMessaging {
     }
     if (msg.checkAddrPattern("/beats")) {
       int beat = msg.get(0).intValue();
-      println("BEAT: " + beat);
-
-      if(endTriggered && timeFinaleStarted == -1 && beat == 1) {
+      Metronome.beat = beat;
+      if (endTriggered && timeFinaleStarted == -1 && beat == 1) {
         timeFinaleStarted = millis();
       }
     }
