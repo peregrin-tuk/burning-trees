@@ -6,9 +6,9 @@ float cursor_size = 60;
 PFont font;
 
 // deep space display sizes
-int WindowWidth = 3030;
-int WindowHeight = 3712;
-int WallHeight = 1914; // should be 1914 (Floor is 1798)
+int WindowWidth = 3840;
+int WindowHeight = 4320;
+int WallHeight = 2160;
 
 // scaled display sizes
 int shrink = 3;

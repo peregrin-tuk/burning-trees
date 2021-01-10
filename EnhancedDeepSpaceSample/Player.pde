@@ -88,7 +88,7 @@ class Player
   }
   
   public void setColor() {
-   this.currentColor = lerpColor(endColor, startColor, this.distance); 
+   this.currentColor = lerpColor(endColor, startColor, this.distance*1.1); 
   }
 }
 

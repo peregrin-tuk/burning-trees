@@ -24,13 +24,12 @@ void drawPlayerTracking()
 
     // player representation
     stroke(p.currentColor);
-    strokeWeight(4);
+    strokeWeight(5);
     noFill();
-    //circle(p.x, p.y, 60+p.amplitude*60);
 
     rectMode(CENTER);
     float yNormal = osc.normalize(p.y-WallHeight, WindowHeight-WallHeight);
-    rect(p.x, p.y, 60+p.amplitude*60, 60+p.amplitude*60, yNormal*60 - p.amplitude*5);
+    rect(p.x, p.y, 100+p.amplitude*100, 100+p.amplitude*100, yNormal*100+p.amplitude*100);
     rectMode(CORNER);
 
     // render tracks = player
