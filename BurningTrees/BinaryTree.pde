@@ -15,7 +15,7 @@ class BinaryTree
   float widthVariation; // [0;1]
   float angleVariation; // [0;1]
   float depthVariation; // [0;1]
-  
+
   boolean drawLeaves;
 
   // float bend; // TODO ? -> bend tree x degrees to the left (-) or right (+)
@@ -26,7 +26,8 @@ class BinaryTree
   boolean playerIsActive = false;
   Node root;
   float shrinkFactor = 0.66;
-  int leafSize = 14;
+  int leafSize = 18;
+  float leafDensity = 0.05; // 0.05 = 5 leaves on 100px branch
 
 
 
@@ -60,7 +61,7 @@ class BinaryTree
     this.widthVariation = widthVariation;
     this.angleVariation = angleVariation;
     this.depthVariation = depthVariation;
-    
+
     this.drawLeaves = drawLeaves;
 
     this.player = pc.getPlayerById(playerID);
@@ -104,7 +105,7 @@ class BinaryTree
   }
 
   private Point2D[] generateLeaves(int size, int startWidth) {
-    int number = (int)(0.05 * size + 0.75);
+    int number = (int)(leafDensity * size + (1-5*leafDensity));
     float dist = startWidth/2 + leafSize;
     Point2D[] leaves = new Point2D[number];
 
@@ -219,7 +220,7 @@ class BinaryTree
         animatedSize = node.size + sizeOsc * 3;
       }
       rotate(animatedAngle); // Rotate by angle
-      
+
       if (node.depth > 4) {
         if (this.playerIsActive) fill(this.player.currentColor);
         else fill(playerColors[this.playerID][0]);
@@ -235,18 +236,25 @@ class BinaryTree
       if (node.left != null && node.right != null) {   
         vertex( node.right.startWidth/2, -animatedSize);
         vertex(-node.left.startWidth/2, -animatedSize);
+
+        float endWidth = node.right.startWidth/2+node.left.startWidth/2;
+        circle(node.right.startWidth/2-endWidth/2, -animatedSize, endWidth);
       } else if (node.left != null) {
         vertex( node.left.startWidth/2, -animatedSize);
         vertex(-node.left.startWidth/2, -animatedSize);
+
+        circle(0, -animatedSize, (float)node.left.startWidth);
       } else if (node.right != null) {
         vertex( node.right.startWidth/2, -animatedSize);
         vertex(-node.right.startWidth/2, -animatedSize);
+
+        circle(0, -animatedSize, (float)node.right.startWidth);
       } else {
         vertex(0, -animatedSize);
       }
       endShape();
 
-      if(this.drawLeaves) drawLeaves(node);
+      if (this.drawLeaves) drawLeaves(node);
 
 
       translate(0, -animatedSize); // Move to the end of the branch
@@ -259,7 +267,7 @@ class BinaryTree
   private void drawLeaves(Node node) {
     if (this.playerIsActive) fill(this.player.currentColor);
     else fill(playerColors[this.playerID][0]);
-    
+
     for (Point2D l : node.leaves) {
       float x = (float)l.getX(); // + random(-1, 1); // performance
       float y = (float)l.getY(); // + random(-1, 1);

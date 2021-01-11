@@ -4,7 +4,7 @@ import java.util.*;
 
 /////   SETTINGS   //////////////////////////////////////////////////////////
 int maxMinutes = 1;        // Max. duration of game
-boolean fullScreen = true;
+boolean fullScreen = false;
 int shrink = 3;             // ignored if fullScreen = true
 /////////////////////////////////////////////////////////////////////////////
 
@@ -32,7 +32,7 @@ boolean OnePlayerMode = false;
 float cursor_size = 60;
 
 // Settings
-int framerate = 60;
+int framerate = 120;
 int maxPlayers = 6;
 int maxPlayingTime = 1000*60 * maxMinutes; // max time at avgY=1 in ms; 
 int timeDistanceFactor = 24; // at avgY=0 max time will be maxPlayingTime/timeDistanceFactor
@@ -72,7 +72,7 @@ void setup()
   noStroke();
   fill(0);
 
-  font = createFont("Arial", 18);
+  font = createFont("Arial", 40);
   endFont = createFont("Ubuntu-Light.ttf", 64);
   endFontSmall = createFont("Ubuntu-Light.ttf", 42);
   endFontSmallBold = createFont("Ubuntu-Medium.ttf", 48);
@@ -159,7 +159,6 @@ void drawFloor() {
 void showFPS() {
   int fps = (int)frameRate; 
 
-  pushStyle();
   noStroke();
   fill(70, 100, 150);
   rect(WindowWidth/2-200, 0, 400, 140);
@@ -172,7 +171,6 @@ void showFPS() {
     textFont(font, 38);
     text("min " + measuredMinFramerate + "  max " + measuredMaxFramerate, WindowWidth / 2, 90);
   }
-  popStyle();
 }
 
 
