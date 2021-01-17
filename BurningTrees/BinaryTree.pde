@@ -214,7 +214,7 @@ class BinaryTree
         float y = Math.max(0, this.player.distance*-1+0.9);
         float signum = (int)((Metronome.beat % 2 - 0.5)*2);
         animatedAngle = node.angle + angleOsc * 0.03 * dir + signum * Math.max(0, y-0.4)*3 * dir + signum * this.player.amplitude * dir *Math.max(0,(y-0.1)*2);
-        animatedSize = node.size + Math.max(0, y+0.3)*this.player.amplitude*100*(dir+0.5);
+        animatedSize = node.size + (y+0.3)*this.player.amplitude*100*(dir+0.5);
       } else {
         animatedAngle = node.angle + angleOsc * 0.1 * dir;
         animatedSize = node.size + sizeOsc * 3;
