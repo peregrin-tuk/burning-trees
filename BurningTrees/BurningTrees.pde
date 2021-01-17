@@ -5,7 +5,7 @@ import java.util.*;
 /////   SETTINGS   //////////////////////////////////////////////////////////
 int maxMinutes = 18;        // Max. duration of game
 boolean fullScreen = false;
-int shrink = 3;             // ignored if fullScreen = true
+int shrink = 1;             // ignored if fullScreen = true
 /////////////////////////////////////////////////////////////////////////////
 
 PFont font;
@@ -49,7 +49,7 @@ color[][] playerColors = {
   {color(150, 200, 185), color( 20, 213, 235)}, 
 };
 color[] backgroundColor = 
-  {color(40, 70, 80), color(57, 29, 42)};
+  {color(40, 70, 80, 220), color(57, 29, 42, 220)};
 
 // do not change
 OSCMessaging osc;
@@ -73,7 +73,7 @@ void setup()
   noStroke();
   fill(0);
   
-  bg = loadImage("background.png");
+  bg = loadImage("background-full.png");
 
   font = createFont("Arial", 40);
   endFont = createFont("Ubuntu-Light.ttf", 64);
@@ -119,7 +119,7 @@ void setup()
 void draw()
 {
   if (!fullScreen) scale(1f/shrink);
-  background(255); // base color = white
+  background(bg);
   calcDistancesAndColors();
   calcTimeLeft();
   osc.sendAllPlayerPositions(pc);
@@ -152,7 +152,7 @@ void drawBackground() {
     else fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
   }
   rect(0, 0, WindowWidth, WallHeight);
-  image(bg, 0, 0);
+  //image(bg, 0, 0);
 }
 
 void drawFloor() {
