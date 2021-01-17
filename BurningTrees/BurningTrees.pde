@@ -3,7 +3,7 @@ import java.awt.Point;
 import java.util.*;
 
 /////   SETTINGS   //////////////////////////////////////////////////////////
-int maxMinutes = 18;        // Max. duration of game
+int maxMinutes = 2;        // Max. duration of game
 boolean fullScreen = false;
 int shrink = 1;             // ignored if fullScreen = true
 /////////////////////////////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ color[][] playerColors = {
   {color(150, 200, 185), color( 20, 213, 235)}, 
 };
 color[] backgroundColor = 
-  {color(40, 70, 80, 220), color(57, 29, 42, 220)};
+  {color(40, 70, 80, 236), color(57, 29, 42, 236)};
 
 // do not change
 OSCMessaging osc;
@@ -119,14 +119,15 @@ void setup()
 void draw()
 {
   if (!fullScreen) scale(1f/shrink);
-  background(bg);
   calcDistancesAndColors();
   calcTimeLeft();
   osc.sendAllPlayerPositions(pc);
 
   if (timeLeft <= 0) {
+    background(255);
     drawEnd();
   } else {
+    background(bg);
     drawBackground();  
     //drawFractalTree();
     for (BinaryTree t : trees) { t.drawAnimatedTree(); }
