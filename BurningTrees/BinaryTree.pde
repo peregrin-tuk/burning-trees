@@ -238,23 +238,26 @@ class BinaryTree
       if (node.left != null && node.right != null) {   
         vertex( node.right.startWidth/2, -animatedSize);
         vertex(-node.left.startWidth/2, -animatedSize);
+        endShape();
 
         float endWidth = node.right.startWidth/2+node.left.startWidth/2;
         circle(node.right.startWidth/2-endWidth/2, -animatedSize, endWidth);
       } else if (node.left != null) {
         vertex( node.left.startWidth/2, -animatedSize);
         vertex(-node.left.startWidth/2, -animatedSize);
+        endShape();
 
         circle(0, -animatedSize, (float)node.left.startWidth);
       } else if (node.right != null) {
         vertex( node.right.startWidth/2, -animatedSize);
         vertex(-node.right.startWidth/2, -animatedSize);
+        endShape();
 
         circle(0, -animatedSize, (float)node.right.startWidth);
       } else {
         vertex(0, -animatedSize);
+        endShape();
       }
-      endShape();
 
       if (this.drawLeaves) drawLeaves(node);
 

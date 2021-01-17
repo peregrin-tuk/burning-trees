@@ -4,7 +4,7 @@ import java.util.*;
 
 /////   SETTINGS   //////////////////////////////////////////////////////////
 int maxMinutes = 18;        // Max. duration of game
-boolean fullScreen = false;
+boolean fullScreen = true;
 int shrink = 1;             // ignored if fullScreen = true
 /////////////////////////////////////////////////////////////////////////////
 
@@ -33,7 +33,7 @@ boolean OnePlayerMode = false;
 float cursor_size = 60;
 
 // Settings
-int framerate = 120;
+int framerate = 60;
 int maxPlayers = 6;
 int maxPlayingTime = 1000*60 * maxMinutes; // max time at avgY=1 in ms; 
 int timeDistanceFactor = 12; // at avgY=0 max time will be maxPlayingTime/timeDistanceFactor
