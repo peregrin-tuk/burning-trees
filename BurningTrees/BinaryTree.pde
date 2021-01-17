@@ -193,6 +193,8 @@ class BinaryTree
       vertex(0, -root.size);
     }
     endShape();
+    float endWidth = root.right.startWidth/2+root.left.startWidth/2;
+    circle(root.right.startWidth/2-endWidth/2, -root.size, endWidth);
 
     translate(0, -root.size); // Move to the end of the branch
 

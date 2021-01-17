@@ -73,7 +73,7 @@ void setup()
   noStroke();
   fill(0);
   
-  bg = loadImage("background2.png");
+  bg = loadImage("background.png");
 
   font = createFont("Arial", 40);
   endFont = createFont("Ubuntu-Light.ttf", 64);
