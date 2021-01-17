@@ -3,9 +3,9 @@ import java.awt.Point;
 import java.util.*;
 
 /////   SETTINGS   //////////////////////////////////////////////////////////
-int maxMinutes = 2;        // Max. duration of game
+int maxMinutes = 18;        // Max. duration of game
 boolean fullScreen = false;
-int shrink = 4;             // ignored if fullScreen = true
+int shrink = 3;             // ignored if fullScreen = true
 /////////////////////////////////////////////////////////////////////////////
 
 PFont font;
@@ -126,7 +126,7 @@ void draw()
   } else {
     drawBackground();  
     //drawFractalTree();
-    //for (BinaryTree t : trees) { t.drawAnimatedTree(); }
+    for (BinaryTree t : trees) { t.drawAnimatedTree(); }
     drawFloor();
   }
   drawPlayerTracking();

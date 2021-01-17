@@ -28,14 +28,14 @@ public class OSCMessaging {
     for (HashMap.Entry<Long, Player> playersEntry : pc.players.entrySet()) {
       Player p = playersEntry.getValue();
       
-      sendNormalizedPlayerPosition(p.id, p.x, p.y);
+      //sendNormalizedPlayerPosition(p.id, p.x, p.y);
 
-      //if (timeFinaleStarted == -1) {
-      //  sendNormalizedPlayerPosition(p.id, p.x, p.y);
-      //} else {
-      //  float fadedY = lerp(p.y, WallHeight, osc.normalize(millis() - timeFinaleStarted, 2400));
-      //  sendNormalizedPlayerPosition(p.id, p.x, fadedY);
-      //}
+      if (timeFinaleStarted == -1) {
+        sendNormalizedPlayerPosition(p.id, p.x, p.y);
+      } else {
+        float fadedY = lerp(p.y, WallHeight, osc.normalize(millis() - timeFinaleStarted, 3000));
+        sendNormalizedPlayerPosition(p.id, p.x, fadedY);
+      }
     }
   }
 
@@ -103,6 +103,9 @@ public class OSCMessaging {
     if (msg.checkAddrPattern("/beats")) {
       int beat = msg.get(0).intValue();
       Metronome.beat = beat;
+      if(Metronome.startBeatOffset == -1) {
+        Metronome.startBeatOffset = millis();
+      }
       if (endTriggered && timeFinaleStarted == -1 && beat == 1) {
         timeFinaleStarted = millis();
       }
