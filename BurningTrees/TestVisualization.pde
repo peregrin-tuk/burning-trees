@@ -47,5 +47,22 @@ void drawTestVisualization() {
     float yn = osc.normalize(p.y-WallHeight, WindowHeight-WallHeight);
     text(String.format("%1$.2f | %2$.2f", xn, yn), xPos, WallHeight - 80);
   }
+
+  // time left
+  float distanceFactor = -(timeDistanceFactor-1) * avgDistance + timeDistanceFactor;
+  int currentTimeLeft = (int)(timeLeft / distanceFactor);
+  int rMin = timeLeft /(1000 * 60);
+  int rSec = timeLeft / 1000 % 60;
+  int cMin = currentTimeLeft /(1000 * 60);
+  int cSec = currentTimeLeft / 1000 % 60;
+  textAlign(RIGHT, CENTER);
+  textSize(36);
+  text("TIME LEFT:", WindowWidth-100, WallHeight - 400);
+  text("max: " + String.format("%02d:%02d", rMin, rSec), WindowWidth-100, WallHeight - 340);
+  text("current: " + String.format("%02d:%02d", cMin, cSec), WindowWidth-100, WallHeight - 300);
+  textSize(30);
+  text("Time Factor: " + String.format("%2.1f", distanceFactor), WindowWidth-100, WallHeight - 200);
+  text("Avg. Y: " + String.format("%1.2f", avgDistance), WindowWidth-100, WallHeight - 160);
+
   popStyle();
 }

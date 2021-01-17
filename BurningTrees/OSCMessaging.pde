@@ -27,7 +27,15 @@ public class OSCMessaging {
   public void sendAllPlayerPositions(PharusClient pc) {
     for (HashMap.Entry<Long, Player> playersEntry : pc.players.entrySet()) {
       Player p = playersEntry.getValue();
+      
       sendNormalizedPlayerPosition(p.id, p.x, p.y);
+
+      //if (timeFinaleStarted == -1) {
+      //  sendNormalizedPlayerPosition(p.id, p.x, p.y);
+      //} else {
+      //  float fadedY = lerp(p.y, WallHeight, osc.normalize(millis() - timeFinaleStarted, 2400));
+      //  sendNormalizedPlayerPosition(p.id, p.x, fadedY);
+      //}
     }
   }
 

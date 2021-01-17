@@ -7,8 +7,8 @@ Burning Trees
 - Die maximale Dauer des Spiels kann in *BurningTrees.pde* Zeile 6 zu Testzwecken verändert werden.
   Die tatsächliche Dauer ist abhängig von der Spielerposition, bei einer maximalen Dauer von 12 min ist die minimale 30 Sekunden (min = max/24).
   Je näher die Spieler zur Wand sind, desto kürzer ist die Dauer der Installation.
-- Jedem Spieler ist eine Tonspur zugeordnet, der wiederum ein Baum an der Wand zugeordnet ist. Je weiter der Spieler von der Wandprojektion entfernt ist, desto ruhiger und natürlicher soll seine Tonspur klingen. Je näher man der Wand kommt, desto aufgeregter und hektischer werden Tonspur und Visualiserung.
-- [ ! ] Zum Testen mit nur einer Testversion ist ein One-Player-Mode implementiert. Dieser kann mit **"o"** aktiviert werden. Mit den Ziffern **0-5** können die Tonspuren gewechselt werden. Um zu sehen, welche Player ID gerade aktiv ist, können mit **"t"** Test-Outputs eingeblendet werden.
+- Jedem Spieler ist eine Tonspur zugeordnet, der wiederum ein Baum an der Wand zugeordnet ist. Je weiter der Spieler von der Wandprojektion entfernt ist, desto ruhiger und natürlicher soll seine Tonspur klingen. Je näher man der Wand kommt, desto aufgeregter und hektischer werden Tonspur und Visualisierung.
+- [ ! ] Zum Testen mit nur einer Testperson ist ein One-Player-Mode implementiert. Dieser kann mit **"o"** aktiviert werden. Mit den Ziffern **0-5** können die Tonspuren gewechselt werden. Um zu sehen, welche Player ID gerade aktiv ist, können mit **"t"** Test-Outputs eingeblendet werden.
 
 
 
@@ -31,9 +31,8 @@ Burning Trees
 
 
 
-
-
 ### Troubleshooting
 
 **Kein Ton aus Max**:
 Die Soundkarte auf die der Ton ausgegeben wird lässt sich unter */Options/Audio Status... > Output Device* umstellen
+
