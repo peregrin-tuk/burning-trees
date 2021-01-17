@@ -3,7 +3,7 @@ import java.awt.Point;
 import java.util.*;
 
 /////   SETTINGS   //////////////////////////////////////////////////////////
-int maxMinutes = 2;        // Max. duration of game
+int maxMinutes = 18;        // Max. duration of game
 boolean fullScreen = false;
 int shrink = 1;             // ignored if fullScreen = true
 /////////////////////////////////////////////////////////////////////////////
@@ -12,7 +12,7 @@ PFont font;
 PFont endFont;
 PFont endFontSmall;
 PFont endFontSmallBold;
-PImage bg;
+PImage floor, wall;
 
 // deep space display sizes
 int WindowWidth = 3840;
@@ -73,7 +73,8 @@ void setup()
   noStroke();
   fill(0);
   
-  bg = loadImage("background-full.png");
+  floor = loadImage("floor-background.png");
+  wall = loadImage("wall-background.png");
 
   font = createFont("Arial", 40);
   endFont = createFont("Ubuntu-Light.ttf", 64);
@@ -119,15 +120,15 @@ void setup()
 void draw()
 {
   if (!fullScreen) scale(1f/shrink);
+  background(255);
   calcDistancesAndColors();
   calcTimeLeft();
   osc.sendAllPlayerPositions(pc);
 
   if (timeLeft <= 0) {
-    background(255);
+
     drawEnd();
   } else {
-    background(bg);
     drawBackground();  
     //drawFractalTree();
     for (BinaryTree t : trees) { t.drawAnimatedTree(); }
@@ -145,6 +146,7 @@ void draw()
 
 void drawBackground() {
   noStroke();
+  image(wall, 0, 0);
 
   if (timeFinaleStarted == -1) {
     fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
@@ -153,10 +155,10 @@ void drawBackground() {
     else fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
   }
   rect(0, 0, WindowWidth, WallHeight);
-  //image(bg, 0, 0);
 }
 
 void drawFloor() {
+  image(floor, 0, WallHeight);
   fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
   rect(0, WallHeight, WindowWidth, WindowHeight);
 }
