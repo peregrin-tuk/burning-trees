@@ -14,14 +14,14 @@ void drawEnd() {
   noStroke();
   
   textAlign(CENTER, CENTER);
-  fill(backgroundColor[0], deltaTime/4 - 300);
+  fill(backgroundColor[0], deltaTime/4 - 1000);
   textFont(endFont);
   text("Everyone starts caring", xQuote, WallHeight/2-100);
-  fill(backgroundColor[0], deltaTime/4 - 800);
+  fill(backgroundColor[0], deltaTime/4 - 1500);
   text("when it's too late.", xQuote, WallHeight/2);
 
   //textAlign(CENTER, CENTER);
-  fill(backgroundColor[0], deltaTime/4 - 1500); 
+  fill(backgroundColor[0], deltaTime/4 - 2500); 
   textFont(endFontSmallBold);
   text("Burning Trees", xCredits, WallHeight-400);
   textFont(endFontSmall);

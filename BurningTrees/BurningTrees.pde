@@ -3,9 +3,9 @@ import java.awt.Point;
 import java.util.*;
 
 /////   SETTINGS   //////////////////////////////////////////////////////////
-int maxMinutes = 1;        // Max. duration of game
+int maxMinutes = 2;        // Max. duration of game
 boolean fullScreen = false;
-int shrink = 3;             // ignored if fullScreen = true
+int shrink = 4;             // ignored if fullScreen = true
 /////////////////////////////////////////////////////////////////////////////
 
 PFont font;
@@ -35,7 +35,7 @@ float cursor_size = 60;
 int framerate = 120;
 int maxPlayers = 6;
 int maxPlayingTime = 1000*60 * maxMinutes; // max time at avgY=1 in ms; 
-int timeDistanceFactor = 24; // at avgY=0 max time will be maxPlayingTime/timeDistanceFactor
+int timeDistanceFactor = 12; // at avgY=0 max time will be maxPlayingTime/timeDistanceFactor
 int timeLeft = maxPlayingTime;
 
 color trunkColor = color(185, 150, 140);
@@ -120,13 +120,13 @@ void draw()
   calcDistancesAndColors();
   calcTimeLeft();
   osc.sendAllPlayerPositions(pc);
-  
+
   if (timeLeft <= 0) {
     drawEnd();
   } else {
     drawBackground();  
     //drawFractalTree();
-    for (BinaryTree t : trees) { t.drawAnimatedTree(); }
+    //for (BinaryTree t : trees) { t.drawAnimatedTree(); }
     drawFloor();
   }
   drawPlayerTracking();
@@ -141,7 +141,7 @@ void draw()
 
 void drawBackground() {
   noStroke();
-  
+
   if (timeFinaleStarted == -1) {
     fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
   } else {
