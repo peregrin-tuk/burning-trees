@@ -1,4 +1,4 @@
-// based on EnhancedDeepSpaceSample Version 3.1 //<>//
+// based on EnhancedDeepSpaceSample Version 3.1 //<>// //<>//
 import java.awt.Point;
 import java.util.*;
 
@@ -12,6 +12,7 @@ PFont font;
 PFont endFont;
 PFont endFontSmall;
 PFont endFontSmallBold;
+PImage bg;
 
 // deep space display sizes
 int WindowWidth = 3840;
@@ -71,6 +72,8 @@ void setup()
   frameRate(framerate);
   noStroke();
   fill(0);
+  
+  bg = loadImage("background2.png");
 
   font = createFont("Arial", 40);
   endFont = createFont("Ubuntu-Light.ttf", 64);
@@ -149,6 +152,7 @@ void drawBackground() {
     else fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
   }
   rect(0, 0, WindowWidth, WallHeight);
+  image(bg, 0, 0);
 }
 
 void drawFloor() {
