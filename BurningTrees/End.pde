@@ -21,6 +21,9 @@ void drawEnd() {
   text("when it's too late.", xQuote, WallHeight/2);
 
   //textAlign(CENTER, CENTER);
+  tint(255, deltaTime/4 - 2500);
+  imageMode(CENTER);
+  image(qr, xCredits, WallHeight-660, 260, 260);
   fill(backgroundColor[0], deltaTime/4 - 2500); 
   textFont(endFontSmallBold);
   text("Burning Trees", xCredits, WallHeight-400);

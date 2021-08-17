@@ -5,14 +5,14 @@ import java.util.*;
 /////   SETTINGS   //////////////////////////////////////////////////////////
 int maxMinutes = 18;        // Max. duration of game
 boolean fullScreen = true;
-int shrink = 1;             // ignored if fullScreen = true
+int shrink = 3;             // ignored if fullScreen = true
 /////////////////////////////////////////////////////////////////////////////
 
 PFont font;
 PFont endFont;
 PFont endFontSmall;
 PFont endFontSmallBold;
-PImage floor, wall;
+PImage floor, wall, qr;
 
 // deep space display sizes
 int WindowWidth = 3840;
@@ -75,6 +75,7 @@ void setup()
   
   floor = loadImage("floor-background.png");
   wall = loadImage("wall-background.png");
+  qr = loadImage("qr.png");
 
   font = createFont("Arial", 40);
   endFont = createFont("Ubuntu-Light.ttf", 64);
@@ -149,17 +150,17 @@ void drawBackground() {
   image(wall, 0, 0);
 
   if (timeFinaleStarted == -1) {
-    fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
+    fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance*2-0.5));
   } else {
-    if (frameCount % 2 == 0) fill(lerpColor(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance), color(255), osc.normalize(millis() - timeFinaleStarted, 2400)));
-    else fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
+    if (frameCount % 2 == 0) fill(lerpColor(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance*2-0.5), color(255), osc.normalize(millis() - timeFinaleStarted, 2400)));
+    else fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance*2-0.5));
   }
   rect(0, 0, WindowWidth, WallHeight);
 }
 
 void drawFloor() {
   image(floor, 0, WallHeight);
-  fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance));
+  fill(lerpColor(backgroundColor[1], backgroundColor[0], avgDistance*2-0.5));
   rect(0, WallHeight, WindowWidth, WindowHeight);
 }
 
