@@ -10,7 +10,7 @@ void drawTestVisualization() {
 
   pushStyle();
   noStroke();
-  fill(70, 100, 150);
+  fill(30, 30, 30);
   rect(0, WallHeight-450, WindowWidth, 450);
 
   // labels

@@ -5,7 +5,7 @@ import java.util.*;
 /////   SETTINGS   //////////////////////////////////////////////////////////
 int maxMinutes = 18;        // Max. duration of game
 boolean fullScreen = true;
-int shrink = 3;             // ignored if fullScreen = true
+int shrink = 4;             // ignored if fullScreen = true
 /////////////////////////////////////////////////////////////////////////////
 
 PFont font;
@@ -49,7 +49,8 @@ color[][] playerColors = {
   {color(150, 200, 185), color( 20, 213, 235)}, 
 };
 color[] backgroundColor = 
-  {color(40, 70, 80, 236), color(57, 29, 42, 236)};
+  {color(30, 70, 68, 236), color(70, 30, 44, 236)};
+  // old colors: {color(40, 70, 80, 236), color(57, 29, 42, 236)};
 
 // do not change
 OSCMessaging osc;
@@ -168,7 +169,7 @@ void showFPS() {
   int fps = (int)frameRate; 
 
   noStroke();
-  fill(70, 100, 150);
+  fill(30, 30, 30);
   rect(WindowWidth/2-200, 0, 400, 140);
   fill(255);
   textFont(font, 40);
